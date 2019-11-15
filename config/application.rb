@@ -9,7 +9,8 @@ Bundler.require(*Rails.groups)
 module ISharingApp
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    # config.load_defaults 5.2
+    config.load_defaults 5.2
+    config.time_zone = 'Asia/Tokyo'
     config.generators do |g|
       g.stylesheets false
       g.javascripts false
