@@ -3,7 +3,7 @@
     .place__header__logo
       %li i sharing
     .place__header__user
-      %li 良平
+      = link_to current_user.name ,edit_user_path(current_user)
     .place__header__sign-up
       %li SIGN UP
     .place__header__log-in

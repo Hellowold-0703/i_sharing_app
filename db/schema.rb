@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 2019_11_15_090736) do
     t.float "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id_id", null: false
+    t.index ["user_id_id"], name: "index_places_on_user_id_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
