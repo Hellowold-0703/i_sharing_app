@@ -5,24 +5,38 @@
     .place__header__user
       %li 良平
     .place__header__sign-up
-      %li 新規登録
+      %li SIGN UP
     .place__header__log-in
-      %li ログイン
+      %li LOG IN
     .place__header__log-out
-      %li ログアウト
+      %li LOG OUT
     .place__header__new-create
-      %li 新規作成
+      = link_to 'New Place', new_place_path
   .place__content
     .place__map
+      #map{:style => "width: 900px; height: 550px;"}
+      :javascript
+        handler = Gmaps.build('Google');
+        handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+          markers = handler.addMarkers(#{raw @hash.to_json});
+          handler.bounds.extendWith(markers);
+          handler.fitMapToBounds();
+        });
     .place__list
-      .place__list__item
-        .place__list__item__user
-          %h1 良平
-        .place__list__item__time 
-          %h2 2019-11-15
-      .place__list__item__image
-        = image_tag '/IMG_1268.jpeg'
-      .place__list__item__address
-        %h3 瀬戸内海
+      .place__list_items
+      - @places.each do |place|
+        .place__list__item
+          .place__list__item__user
+            %h1 良平
+          .place__list__item__time 
+            = place.created_at.strftime("%Y/%m/%d %H:%M")
+        .place__list__item__image
+          = image_tag place.images[0].url
+        .place__list__item__address
+          = place.address
+          .place_list_link
+            = link_to '詳細', place
+            = link_to '編集', edit_place_path(place)
+            = link_to '削除', place, method: :delete, data: { confirm: '削除してよろしいですか?' }
   .place__footer
       
