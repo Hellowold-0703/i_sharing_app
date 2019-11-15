@@ -27,7 +27,7 @@
       - @places.each do |place|
         .place__list__item
           .place__list__item__user
-            %h1 良平
+            = place.user.name
           .place__list__item__time 
             = place.created_at.strftime("%Y/%m/%d %H:%M")
         .place__list__item__image
