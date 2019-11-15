@@ -3,7 +3,7 @@
     .place__header__logo
       %li i sharing
     .place__header__user
-      %li 良平
+      = link_to current_user.name ,edit_user_path(current_user)
     .place__header__sign-up
       %li SIGN UP
     .place__header__log-in
@@ -27,15 +27,16 @@
       - @places.each do |place|
         .place__list__item
           .place__list__item__user
-            %h1 良平
+            = place.user.name
           .place__list__item__time 
             = place.created_at.strftime("%Y/%m/%d %H:%M")
         .place__list__item__image
-          = image_tag place.images[0].url
+          = link_to place do
+            = image_tag place.images[0].url
         .place__list__item__address
           = place.address
           .place_list_link
-            = link_to '詳細', place
+          - if place.user_id == current_user.id
             = link_to '編集', edit_place_path(place)
             = link_to '削除', place, method: :delete, data: { confirm: '削除してよろしいですか?' }
   .place__footer
