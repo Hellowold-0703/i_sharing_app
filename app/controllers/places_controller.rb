@@ -12,6 +12,10 @@ class PlacesController < ApplicationController
     end
   end
 
+  def search
+    @places = Place.all
+  end
+
   # GET /places/1
   # GET /places/1.json
   def show
