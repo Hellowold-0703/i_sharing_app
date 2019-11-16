@@ -12,18 +12,8 @@
       = link_to 'All Places', all_places_path
     .place__header__new-create
       = link_to 'New Place', new_place_path
-  .place__content
-    .place__map
-      #map{:style => "width: 1000px; height: 550px;"}
-      :javascript
-        handler = Gmaps.build('Google');
-        handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-          markers = handler.addMarkers(#{raw @hash.to_json});
-          handler.bounds.extendWith(markers);
-          handler.fitMapToBounds();
-        });
-    .place__list
-      .place__list__items
+  .place__all
+    .place__all__pictures
       - @places.each do |place|
         .place__box
           .place__list__item
@@ -41,4 +31,3 @@
               = link_to '編集', edit_place_path(place)
               = link_to '削除', place, method: :delete, data: { confirm: '削除してよろしいですか?' }
   .place__footer
-      

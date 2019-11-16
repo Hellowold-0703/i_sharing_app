@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :places
+  resources :places do
+    collection do
+      get :all
+    end
+  end
   resources :users, only: [:edit, :update]
   root to: 'places#index'
 end
