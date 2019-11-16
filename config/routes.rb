@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :places do
     collection do
-      get :search
+      get :all
     end
   end
   resources :users, only: [:edit, :update]

@@ -12,7 +12,7 @@ class PlacesController < ApplicationController
     end
   end
 
-  def search
+  def all
     @places = Place.all
   end
 
