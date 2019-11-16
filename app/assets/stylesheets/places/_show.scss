@@ -99,7 +99,7 @@
                   overflow: hidden;
                   position: absolute;
                   top: -10px;
-                  left: 28px;
+                  left: -20px;
                   max-width: 100%;
                   min-width: 214px;
                   height: 1.2em;
@@ -108,7 +108,7 @@
                 }
               }
             .comment__body {
-              float: right;
+              float: left;
               position: relative;
               width: calc(100% - 56px);
               padding: 16px;
@@ -122,8 +122,11 @@
               float: right;
               color: #ea352d;
               }
+              figcaption {
+                left: 70px;
+              }
               .comment__body {
-              float: left;
+              float: right;
               background: #fbf0e6;
               }
             }
