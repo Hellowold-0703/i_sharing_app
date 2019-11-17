@@ -1,54 +1,92 @@
-#map
-:javascript
-  function initMap() {
+.place
+  .place__header
+    .place__header__logo
+      = link_to 'i sharing', root_path
+    .place__header__user
+      = link_to current_user.name ,edit_user_path(current_user)
+    .place__header__sign-up
+      %li SIGN UP
+    .place__header__log-in
+      %li LOG IN
+    .place__header__all-places
+      = link_to 'All Places', all_places_path
+    .place__header__new-create
+      = link_to 'New Place', new_place_path
+  .place__details
+    .place__details__page
+      .place__details__title
+        = @place.title
+      .place__details__images
+        .place__details__images-main
+          = image_tag @place.images[0].url
+        .place__details__images-thumbnails
+          - @place.images.each do |image|
+            = image_tag image.url
+      .place__details__map
+        #map{style: "width: 400px; height: 400px;"}
+        :javascript
+          function initMap() {
 
-      var test ={lat: #{@place.latitude}, lng: #{@place.longitude}};
-      var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 15,
-          center: test
-      });
-      var transitLayer = new google.maps.TransitLayer();
-      transitLayer.setMap(map);
+            var test ={lat: #{@place.latitude}, lng: #{@place.longitude}};
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 15,
+                center: test
+            });
+            var transitLayer = new google.maps.TransitLayer();
+            transitLayer.setMap(map);
 
-      var contentString = '住所：#{@place.address}';
-      var infowindow = new google.maps.InfoWindow({
-          content: contentString
-      });
+            var contentString = '住所：#{@place.address}';
+            var infowindow = new google.maps.InfoWindow({
+                content: contentString
+            });
 
-      var marker = new google.maps.Marker({
-          position:test,
-          map: map,
-          title: contentString
-      });
+            var marker = new google.maps.Marker({
+                position:test,
+                map: map,
+                title: contentString
+            });
 
-      marker.addListener('click', function() {
-          infowindow.open(map, marker);
-      });
-  }
-%script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?v=3.exp&key= #{ ENV['GOOGLE_MAPS_API_KEY'] }\n\n&callback=initMap"}
-  :cdata
+            marker.addListener('click', function() {
+                infowindow.open(map, marker);
+            });
+          }
+        %script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?v=3.exp&key= #{ ENV['GOOGLE_MAPS_API_KEY'] }\n\n&callback=initMap"}
+        :cdata
+      .place__details__explanation
+        %h1 住所又は施設名など
+        .place__address
+          = @place.address
+        %p 
+        %h2 詳しい説明
+        .place__description
+          = @place.description
 
-%p#notice= notice
-
-%p
-  %b Title:
-  = @place.title
-%p
-  %b Address:
-  = @place.address
-%p
-  %b Description:
-  = @place.description
-%p
-- @place.images.each do |image|
-  = image_tag image.url
-%p
-  %b Latitude:
-  = @place.latitude
-%p
-  %b Longitude:
-  = @place.longitude
-
-= link_to 'Edit', edit_place_path(@place)
-\|
-= link_to 'Back', places_path
+  .place__comments
+    .place__comment__container
+      .place__comment
+        %ul.comment__items
+          %li.clearfix
+            %a.comment__user
+              %figure
+                %figcaption.bold
+                  良平
+            .comment__body
+              .comment__body__text
+                サイズはどんな漢字ですか
+              %i
+          %li.clearfix.comment__self
+            %a.comment__user
+              %figure
+                %figcaption.bold
+                  良平
+            .comment__body
+              .comment__body__text
+                サイズはどんな漢字ですか
+              %i
+      .place__comment
+        .place__comment__content
+          %form.comment-form
+            %p 相手のことを考え丁寧なコメントを心がけましょう。
+            %textarea.textarea-default
+            %button.comment-submit-btn
+              %span コメントする

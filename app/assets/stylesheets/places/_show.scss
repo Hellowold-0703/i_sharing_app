@@ -1,0 +1,172 @@
+ .place__details {
+    width: 850px;
+    padding: 60px 40px 40px;
+    margin: 0 auto;
+    background-color: rgb(219, 219, 219);
+    &__images {
+      float: left;
+      width: 400px;
+      height: 400px;
+      background-color: #ffffff;
+      &-main {
+        width: 400px;
+        height: 300px;
+        img {
+          width: 400px;
+          height: 300px;
+        }
+      }
+      &-thumbnails {
+        display: inline;
+        width: 100px;
+        height: 100px;
+        img {
+          display: block;
+          float: left;
+          width: 100px;
+          height: 100px;
+        }
+      }
+    }
+    &__map {
+      float: right;
+    }
+    &__explanation {
+      padding-top: 30px;
+      clear: both;
+      .place__address {
+        padding: 5px;
+        width: 850px;
+        min-height: 50px;
+        background-color: #ffffff;
+      }
+      .place__description {
+        padding: 5px;
+        width: 850px;
+        min-height: 50px;
+        background-color: #ffffff;
+      }
+    }
+  }
+
+  .place__comments {
+    width: 930px;
+    margin: 20px auto 0;
+    background-color: rgb(219, 219, 219);
+    .place__comment {
+      box-sizing: border-box;
+      padding-top:20px;
+      margin: 0 auto;
+      width: 700px;
+      span{
+        color: #fff;
+      }
+      &__content {
+        padding: 24px;
+        background-color: #fff;
+      } 
+        ul {
+          list-style: none;
+        } 
+        .comment__items {
+          box-sizing: border-box;
+          width: 600px;
+          margin:0 auto;
+          li:first-child {
+            margin: 1.5em 0 0;
+          }
+          li {
+            margin: 60px 0 0;
+          }
+            a {
+              text-decoration: none;
+              touch-action: manipulation;
+            }
+            .comment__user {
+              display: inline-block;
+              position: relative;
+              float: left;
+              color: #333;
+                img {
+                width: 100%;
+                }
+                .bold {
+                  font-weight: 600;
+                }
+                figcaption {
+                  width: 600px;
+                  min-width: 600px;
+                  overflow: hidden;
+                  position: absolute;
+                  top: -10px;
+                  left: -20px;
+                  max-width: 100%;
+                  min-width: 214px;
+                  height: 1.2em;
+                  white-space: nowrap;
+                  text-overflow: ellipsis;
+                }
+              }
+            .comment__body {
+              float: left;
+              position: relative;
+              width: calc(100% - 56px);
+              padding: 16px;
+              background: #eef0f4;
+              border-radius: 15px;
+              line-height: 1.5;
+              word-break: break-all;
+              }
+            .comment__self{
+              .comment__user {
+              float: right;
+              color: #ea352d;
+              }
+              figcaption {
+                left: 70px;
+              }
+              .comment__body {
+              float: right;
+              background: #fbf0e6;
+              }
+            }
+          }
+      .comment-form p {
+        padding: 8px;
+        font-size: 14px;
+        background-color: #fff6de;
+        line-height: 14px;
+      }
+      .textarea-default {
+        box-sizing: border-box;
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        min-height: 104px;
+        margin: 8px 0 0;
+        padding: 10px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+        line-height: 16px;
+        background-color: #f5f5f5;
+      }
+      .comment-submit-btn {
+        display: block;
+        width: 100%;
+        margin: 8px 0 0;
+        font-size: 14px;
+        text-align: center;
+        background-color: #aaa;
+        border: 1px solid #aaa;
+        color: #fff;
+        line-height: 48px;
+        transition: all ease-out .3s;
+        cursor: pointer;
+      }
+    }
+  }
+  .clearfix:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
