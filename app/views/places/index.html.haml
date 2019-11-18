@@ -1,17 +1,18 @@
-.place
-  = render partial: 'places/header'
-  .place__content
-    .place__map
-      #map{:style => "width: 1000px; height: 550px;"}
-      :javascript
-        handler = Gmaps.build('Google');
-        handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-          markers = handler.addMarkers(#{raw @hash.to_json});
-          handler.bounds.extendWith(markers);
-          handler.fitMapToBounds();
-        });
-    .place__list
-      .place__list__items
-      = render partial: 'places/collection', collection: @places, as: :place
-  .place__footer
-      
+.warpper
+  .place
+    = render partial: 'places/header'
+    .place__content
+      .place__map
+        #map{:style => "width: 1000px; height: 550px;"}
+        :javascript
+          handler = Gmaps.build('Google');
+          handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+            markers = handler.addMarkers(#{raw @hash.to_json});
+            handler.bounds.extendWith(markers);
+            handler.fitMapToBounds();
+          });
+      .place__list
+        .place__list__items
+        = render partial: 'places/collection', collection: @places, as: :place
+    .place__footer
+        

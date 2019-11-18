@@ -1,5 +1,6 @@
- .place {
-  background-color: rgb(219, 219, 219);
+.details{
+  background-color:rgb(219, 219, 219);
+}
   .place__details {
       width: 850px;
       padding: 60px 40px 40px;
@@ -46,22 +47,25 @@
           width: 850px;
           min-height: 20px;
           background-color: #ffffff;
+          font-weight: bold;
         }
         .place__address {
           padding: 5px 0 5px 10px;
           width: 850px;
           min-height: 50px;
           background-color: #ffffff;
+          font-weight: bold;
         }
         .place__description {
           padding: 5px 0 5px 10px;
           width: 850px;
           min-height: 50px;
           background-color: #ffffff;
+          font-weight: bold;
         }
       }
-    }
-  }
+     }
+
   .place__comments {
     width: 930px;
     margin: 20px auto 0;
@@ -72,7 +76,7 @@
       margin: 0 auto;
       width: 700px;
       span{
-       margin-left: 5px;
+      margin-left: 5px;
       }
       &__content {
         padding: 24px;
