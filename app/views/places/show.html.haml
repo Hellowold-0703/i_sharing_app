@@ -5,9 +5,9 @@
     .place__header__user
       = link_to current_user.name ,edit_user_path(current_user)
     .place__header__sign-up
-      %li SIGN UP
+      %li 
     .place__header__log-in
-      %li LOG IN
+      %li 
     .place__header__all-places
       = link_to 'All Places', all_places_path
     .place__header__new-create
@@ -75,6 +75,17 @@
                   %figure
                     %figcaption.bold
                       = c.user.name
+                .comment__body
+                  .comment__body__text
+                    = c.comment
+                  %i
+            - elsif @place.user.id == c.user_id
+              %li.clearfix
+                %a.comment__user
+                  %figure
+                    %figcaption.bold
+                      = c.user.name
+                      %span 投稿者
                 .comment__body
                   .comment__body__text
                     = c.comment
