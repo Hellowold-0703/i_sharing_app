@@ -3,6 +3,11 @@
     padding: 60px 40px 40px;
     margin: 0 auto;
     background-color: rgb(219, 219, 219);
+    &__title {
+      padding-top: 10px;
+      font-size: 30px;
+      text-align: center;
+    }
     &__images {
       float: left;
       width: 400px;
@@ -34,14 +39,20 @@
     &__explanation {
       padding-top: 30px;
       clear: both;
+      .place__username {
+        padding: 5px 0 5px 10px;
+        width: 850px;
+        min-height: 20px;
+        background-color: #ffffff;
+      }
       .place__address {
-        padding: 5px;
+        padding: 5px 0 5px 10px;
         width: 850px;
         min-height: 50px;
         background-color: #ffffff;
       }
       .place__description {
-        padding: 5px;
+        padding: 5px 0 5px 10px;
         width: 850px;
         min-height: 50px;
         background-color: #ffffff;
@@ -55,7 +66,7 @@
     background-color: rgb(219, 219, 219);
     .place__comment {
       box-sizing: border-box;
-      padding-top:20px;
+      padding: 20px;
       margin: 0 auto;
       width: 700px;
       span{
@@ -99,7 +110,7 @@
                   overflow: hidden;
                   position: absolute;
                   top: -10px;
-                  left: -20px;
+                  left: -50px;
                   max-width: 100%;
                   min-width: 214px;
                   height: 1.2em;
