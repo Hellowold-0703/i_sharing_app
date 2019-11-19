@@ -1,5 +1,10 @@
-%h1 New place
+.place
+  = render partial: 'places/header' 
 
-= render 'form'
+  .new
+    .new__place
+      %h1 地点の情報を入力
 
-= link_to 'Back', places_path
+      = render 'form'
+
+      = link_to 'トップページ', places_path

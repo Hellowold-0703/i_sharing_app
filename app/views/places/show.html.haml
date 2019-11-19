@@ -46,6 +46,7 @@
                 title: contentString
             });
 
+<<<<<<< Updated upstream
             marker.addListener('click', function() {
                 infowindow.open(map, marker);
             });
@@ -60,6 +61,24 @@
         %h2 詳しい説明
         .place__description
           = @place.description
+=======
+              marker.addListener('click', function() {
+                  infowindow.open(map, marker);
+              });
+            }
+          %script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?v=3.exp&key= #{ ENV['GOOGLE_MAPS_API_KEY'] }\n\n&callback=initMap"}
+          :cdata
+        .place__details__explanation
+          %h1 投稿者名
+          .place__username
+            =@place.user.name
+          %h2 住所又は施設名など
+          .place__address
+            = @place.address
+          %h3 説明
+          .place__description
+            = @place.description
+>>>>>>> Stashed changes
 
   .place__comments
     .place__comment__container
