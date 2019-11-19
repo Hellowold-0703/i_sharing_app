@@ -13,7 +13,7 @@ ja:
       place:
         title: タイトル
         address: 住所・施設名
-        description: 詳しい説明
+        description: 説明
         images: 画像
         latitude: 緯度
         longitude: 経度

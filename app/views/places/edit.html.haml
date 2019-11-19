@@ -1,7 +1,12 @@
-%h1 Editing place
+.place
+  = render partial: 'places/header' 
 
-= render 'form'
+  .new
+    .new__place
+      %h1 地点の情報を編集
 
-= link_to 'Show', @place
-\|
-= link_to 'Back', places_path
+      = render 'form'
+
+      = link_to '詳細', @place
+      \・
+      = link_to 'トップページ', places_path

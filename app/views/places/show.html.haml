@@ -15,7 +15,6 @@
           #map{style: "width: 400px; height: 400px;"}
           :javascript
             function initMap() {
-
               var test ={lat: #{@place.latitude}, lng: #{@place.longitude}};
               var map = new google.maps.Map(document.getElementById('map'), {
                   zoom: 15,
@@ -34,7 +33,6 @@
                   map: map,
                   title: contentString
               });
-
               marker.addListener('click', function() {
                   infowindow.open(map, marker);
               });
@@ -48,10 +46,9 @@
           %h2 住所又は施設名など
           .place__address
             = @place.address
-          %h3 詳しい説明
+          %h3 説明
           .place__description
             = @place.description
-
     .place__comments
       .place__comment__container
         .place__comment
