@@ -1,65 +1,82 @@
- .place__details {
-    width: 850px;
-    padding: 60px 40px 40px;
-    margin: 0 auto;
-    background-color: rgb(219, 219, 219);
-    &__images {
-      float: left;
-      width: 400px;
-      height: 400px;
+.details{
+  background-color:rgb(219, 219, 219);
+}
+  .place__details {
+      width: 850px;
+      padding: 60px 40px 40px;
+      margin: 0 auto;
       background-color: #ffffff;
-      &-main {
+      &__title {
+        padding-top: 10px;
+        font-size: 30px;
+        text-align: center;
+      }
+      &__images {
+        float: left;
         width: 400px;
-        height: 300px;
-        img {
+        height: 400px;
+        background-color: #ffffff;
+        &-main {
           width: 400px;
           height: 300px;
+          img {
+            width: 400px;
+            height: 300px;
+          }
         }
-      }
-      &-thumbnails {
-        display: inline;
-        width: 100px;
-        height: 100px;
-        img {
-          display: block;
-          float: left;
+        &-thumbnails {
+          display: inline;
           width: 100px;
           height: 100px;
+          img {
+            display: block;
+            float: left;
+            width: 100px;
+            height: 100px;
+          }
         }
       }
-    }
-    &__map {
-      float: right;
-    }
-    &__explanation {
-      padding-top: 30px;
-      clear: both;
-      .place__address {
-        padding: 5px;
-        width: 850px;
-        min-height: 50px;
-        background-color: #ffffff;
+      &__map {
+        float: right;
       }
-      .place__description {
-        padding: 5px;
-        width: 850px;
-        min-height: 50px;
-        background-color: #ffffff;
+      &__explanation {
+        padding-top: 30px;
+        clear: both;
+        .place__username {
+          padding: 5px 0 5px 10px;
+          width: 850px;
+          min-height: 20px;
+          background-color: #ffffff;
+          font-weight: bold;
+        }
+        .place__address {
+          padding: 5px 0 5px 10px;
+          width: 850px;
+          min-height: 50px;
+          background-color: #ffffff;
+          font-weight: bold;
+        }
+        .place__description {
+          padding: 5px 0 5px 10px;
+          width: 850px;
+          min-height: 50px;
+          background-color: #ffffff;
+          font-weight: bold;
+        }
       }
-    }
-  }
+     }
 
   .place__comments {
     width: 930px;
     margin: 20px auto 0;
-    background-color: rgb(219, 219, 219);
+    background-color: #ffffff;
     .place__comment {
       box-sizing: border-box;
-      padding-top:20px;
+      padding: 20px;
       margin: 0 auto;
       width: 700px;
       span{
-        color: #fff;
+      margin-left: 5px;
       }
       &__content {
         padding: 24px;
@@ -99,7 +116,7 @@
                   overflow: hidden;
                   position: absolute;
                   top: -10px;
-                  left: -20px;
+                  left: -50px;
                   max-width: 100%;
                   min-width: 214px;
                   height: 1.2em;

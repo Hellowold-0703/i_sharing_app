@@ -1,0 +1,13 @@
+.place__header
+  .place__header__logo
+    = link_to 'i sharing', root_path
+  .place__header__user
+    = link_to current_user.name ,edit_user_path(current_user)
+  .place__header__sign-up
+    %li 
+  .place__header__log-in
+    %li 
+  .place__header__all-places
+    = link_to 'All Places', all_places_path
+  .place__header__new-create
+    = link_to 'New Place', new_place_path
