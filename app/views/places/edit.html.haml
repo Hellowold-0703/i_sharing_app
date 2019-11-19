@@ -2,11 +2,12 @@
   = render partial: 'places/header' 
 
   .new
-    .new__place
-      %h1 地点の情報を編集
+    .new__create
+      .new__place
+        %h1 地点の情報を編集
 
-      = render 'form'
+        = render 'form'
 
-      = link_to '詳細', @place
-      \・
-      = link_to 'トップページ', places_path
+        = link_to '詳細', @place
+        \・
+        = link_to 'トップページ', places_path

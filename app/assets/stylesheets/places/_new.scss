@@ -24,58 +24,60 @@ p{
 .new {
   background-color:rgb(219, 219, 219);
 }
-  .new__place {
+  .new__create {
     padding-top: 60px;
     margin: 0 auto;
     width: 600px;
     min-height: 700px;
-    text-align: center;
-    background-color: #ffffff;
-    h1 {
-      margin: 20px 0 20px;
-      font-size: 30px;
-      font-weight: bold;
-    }
-    .field {
-      font-size: 20px;
-    }
-    &__title {
-      padding-left: 10px;
-      width: 400px;
-      height: 40px;
-      font-size: 20px;
-      border:1px solid black;
-      box-sizing: border-box;
-    }
-    &__address {
-      padding-left: 10px;
-      width: 400px;
-      height: 40px;
-      font-size: 20px;
-      border:1px solid black;
-      box-sizing: border-box;
-    }
-    &__description {
-      padding-left: 10px;
-      width: 400px;
-      height: 200px;
-      font-size: 20px;
-      border:1px solid black;
-      box-sizing: border-box;
-    }
-    &__btn {
-      width: 400px;
-      height: 40px;
-      font-size: 14px;
-      color: #ffffff;
-      background-color: #aaa;
-      border: 1px solid #aaa;
-      transition: all ease-out .3s;
-      cursor: pointer;
-      box-sizing: border-box;
-    }
-    a {
-      text-decoration: none;
-      color: blue;
-    }
   }
+    .new__place {
+      padding: 20px 0 20px;
+      text-align: center;
+      background-color: #ffffff;
+      h1 {
+        font-size: 30px;
+        font-weight: bold;
+      }
+      .field {
+        font-size: 20px;
+      }
+      &__title {
+        padding-left: 10px;
+        width: 400px;
+        height: 40px;
+        font-size: 20px;
+        border:1px solid black;
+        box-sizing: border-box;
+      }
+      &__address {
+        padding-left: 10px;
+        width: 400px;
+        height: 40px;
+        font-size: 20px;
+        border:1px solid black;
+        box-sizing: border-box;
+      }
+      &__description {
+        padding-left: 10px;
+        width: 400px;
+        height: 200px;
+        font-size: 20px;
+        border:1px solid black;
+        box-sizing: border-box;
+      }
+      &__btn {
+        width: 400px;
+        height: 40px;
+        font-size: 14px;
+        color: #ffffff;
+        background-color: #aaa;
+        border: 1px solid #aaa;
+        transition: all ease-out .3s;
+        cursor: pointer;
+        box-sizing: border-box;
+      }
+      a {
+        text-decoration: none;
+        color: blue;
+      }
+    }

@@ -21,6 +21,7 @@
         font-size: 30px;
         text-align: center;
         line-height: 60px;
+        cursor: pointer;
       }
       &__user {
         margin: auto 20px;
@@ -29,6 +30,7 @@
         text-align: center;
         line-height: 40px;
         border: 1px solid #ffffff;
+        cursor: pointer;
       }
       &__sign-up {
         margin: auto 20px auto auto;
@@ -37,6 +39,7 @@
         text-align: center;
         line-height: 40px;
         border: 1px solid #ffffff;
+        cursor: pointer;
         
       }
       &__log-in {
@@ -46,6 +49,7 @@
         text-align: center;
         line-height: 40px;
         border: 1px solid #ffffff;
+        cursor: pointer;
       }
       &__all-places {
         margin: auto 20px;
@@ -54,6 +58,7 @@
         text-align: center;
         line-height: 40px;
         border: 1px solid #ffffff;
+        cursor: pointer;
       }
       &__new-create {
         margin: auto 20px;
@@ -62,6 +67,7 @@
         text-align: center;
         line-height: 40px;
         border: 1px solid #ffffff;
+        cursor: pointer;
       }
       li {
         list-style: none;

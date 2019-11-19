@@ -91,5 +91,5 @@
             = form_with url: place_comments_path(@place.id) do |f|
               .comment-form
                 %p 相手のことを考え丁寧なコメントを心がけましょう。
-                = f.text_field :comment, {class: "textarea-default"}
+                = f.text_area :comment, {class: "textarea-default"}
                 = f.submit 'コメントする',{class: "button comment-submit-btn"}
