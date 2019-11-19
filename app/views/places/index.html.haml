@@ -1,32 +1,17 @@
-.place
-  = render partial: 'places/header' 
-  .place__content
-    .place__map
-      #map{:style => "width: 1000px; height: 550px;"}
-      :javascript
-        handler = Gmaps.build('Google');
-        handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-          markers = handler.addMarkers(#{raw @hash.to_json});
-          handler.bounds.extendWith(markers);
-          handler.fitMapToBounds();
-        });
-    .place__list
-      .place__list__items
-      - @places.each do |place|
-        .place__box
-          .place__list__item
-            .place__list__item__user
-              = place.user.name
-            .place__list__item__time 
-              = place.created_at.strftime("%Y/%m/%d %H:%M")
-          .place__list__item__image
-            = link_to place do
-              = image_tag place.images[0].url
-          .place__list__item__address
-            = place.address
-            .place_list_link
-            - if place.user_id == current_user.id
-              = link_to '編集', edit_place_path(place)
-              = link_to '削除', place, method: :delete, data: { confirm: '削除してよろしいですか?' }
-  .place__footer
-      
+.warpper
+  .place
+    = render partial: 'places/header'
+    .place__content
+      .place__map
+        #map{:style => "width: 1000px; height: 550px;"}
+        :javascript
+          handler = Gmaps.build('Google');
+          handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+            markers = handler.addMarkers(#{raw @hash.to_json});
+            handler.bounds.extendWith(markers);
+            handler.fitMapToBounds();
+          });
+      .place__list
+        .place__list__items
+        = render partial: 'places/collection', collection: @places, as: :place
+    .place__footer
