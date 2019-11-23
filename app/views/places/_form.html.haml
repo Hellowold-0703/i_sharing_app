@@ -1,16 +1,25 @@
 = form_for @place do |f|
   - if @place.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@place.errors.count, "error")} prohibited this place from being saved:"
       %ul
         - @place.errors.full_messages.each do |message|
           %li= message
   
   .field
-    = f.label :images
-    ※必須
-  %p
-    = f.file_field :images, {class: "new__place__images", multiple: true}
+    画像 ※必須 最大で４枚アップロードできます
+    .images
+      .view_box
+        = f.label :images 
+        = f.file_field :images, class:"file"
+      .view_box
+        = f.label :images
+        = f.file_field :images, class:"file"
+      .view_box
+        = f.label :images
+        = f.file_field :images, class:"file"
+      .view_box
+        = f.label :images
+        = f.file_field :images, class:"file"
   .field
     = f.label :title
     ※必須
