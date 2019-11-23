@@ -5,8 +5,56 @@
     .new__create
       .new__place
         %h1 地点の情報を編集
+      
+        = form_for @place do |f|
+          - if @place.errors.any?
+            #error_explanation
+              %ul
+                - @place.errors.full_messages.each do |message|
+                  %li= message
 
-        = render 'form'
+          - @place.images.each do |image|     
+            .field
+              画像 ※必須 最大で４枚アップロードできます
+              .images
+                .view_box
+                  = f.label :images
+                  = image_tag image.url if @place.images[0].present?
+                  = f.file_field :images, class:"file", multiple: true
+                  = f.hidden_field :images_cache
+                .view_box
+                  = f.label :images
+                  = image_tag image.url if @place.images[1].present?
+                  = f.file_field :images, class:"file", multiple: true
+                  = f.hidden_field :images_cache
+                .view_box
+                  = f.label :images
+                  = image_tag image.url if @place.images[2].present?
+                  = f.file_field :images, class:"file", multiple: true
+                  = f.hidden_field :images_cache
+                .view_box
+                  = f.label :images
+                  = image_tag image.url if @place.images[3].present?
+                  = f.file_field :images, class:"file", multiple: true
+                  = f.hidden_field :images_cache
+          .field
+            = f.label :title
+            ※必須
+          %p
+            = f.text_field :title,{class: "new__place__title"}
+          .field
+            = f.label :address
+            ※必須
+          %p
+            = f.text_field :address,{class: "new__place__address", placeholder:"例 スターバックス 道玄坂店"}
+          .field
+            = f.label :description
+            ※必須
+          %p
+            = f.text_area :description,{class: "new__place__description",placeholder: "例 とても混雑していたがスターバックスラテは相変わらず美味しい！！"}
+
+          .actions
+            = f.submit '編集する',{class: "btn new__place__btn"}
 
         = link_to '詳細', @place
         \・

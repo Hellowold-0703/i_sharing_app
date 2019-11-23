@@ -30,6 +30,9 @@ class PlacesController < ApplicationController
 
   # GET /places/1/edit
   def edit
+    @place.images.each do |image|
+    image.cache! unless image.blank?
+    end
   end
 
   # POST /places
@@ -80,6 +83,6 @@ class PlacesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def place_params
-      params.require(:place).permit(:title, :address, :description, {images: []}, :latitude, :longitude).merge(user_id: current_user.id)
+      params.require(:place).permit(:title, :address, :description, {images: []}, :latitude, :longitude, :images_cache).merge(user_id: current_user.id)
     end
 end

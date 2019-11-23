@@ -5,16 +5,13 @@ $(document).on('turbolinks:load', function() {
         filereader = new FileReader(),
         view_box = $(this).parent('.view_box');
     
-  
-    
+  if(find_img.length ){
+      find_img.nextAll().remove();
+      find_img.remove();
+  }
   var img = '<div class="img_view"><img alt="" class="img"><p><a href="#" class="img_del">削除</a></p></div>';
-  
-  if(find_img.length){
-    find_img.nextAll().remove();
-    find_img.remove();
-  }else {
-    view_box.append(img);
-}
+    
+  view_box.append(img);
 
   filereader.onload = function() {
     view_box.find('img').attr('src', filereader.result);
