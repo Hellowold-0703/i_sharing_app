@@ -1,4 +1,5 @@
 $(document).on('turbolinks:load', function() {
+   
   $(".file").on('change', function(){
     var fileprop = $(this).prop('files')[0],
         find_img = $(this).parent().find('img'),
@@ -10,7 +11,7 @@ $(document).on('turbolinks:load', function() {
       find_img.remove();
   }
   var img = '<div class="img_view"><img alt="" class="img"><p><a href="#" class="img_del">削除</a></p></div>';
-    
+  
   view_box.append(img);
 
   filereader.onload = function() {
@@ -20,6 +21,46 @@ $(document).on('turbolinks:load', function() {
   filereader.readAsDataURL(fileprop);
   });
 
+    var img = $('<div class="img_view"><img alt="" class="img"><p><a href="#" class="img_del">削除</a></p></div>');
+
+    var binary_data1 = gon.image1
+    
+    img.find("img").attr({
+      src: "data:image/jpeg;base64," + binary_data1
+    });
+    $(".view_box:first").append(img);
+    img_del($(".view_box:first"));
+
+    var img = $('<div class="img_view"><img alt="" class="img"><p><a href="#" class="img_del">削除</a></p></div>');
+    
+    var binary_data2 = gon.image2
+
+    img.find("img").attr({
+      src: "data:image/jpeg;base64," + binary_data2
+    });
+    $(".view_box:nth-child(2)").append(img);
+    img_del($(".view_box:nth-child(2)"));
+
+    var img = $('<div class="img_view"><img alt="" class="img"><p><a href="#" class="img_del">削除</a></p></div>');
+
+    var binary_data3 = gon.image3
+
+    img.find("img").attr({
+      src: "data:image/jpeg;base64," + binary_data3
+    });
+    $(".view_box:nth-child(3)").append(img);
+    img_del($(".view_box:nth-child(3)"));
+
+    var img = $('<div class="img_view"><img alt="" class="img"><p><a href="#" class="img_del">削除</a></p></div>');
+
+    var binary_data4 = gon.image4
+
+    img.find("img").attr({
+      src: "data:image/jpeg;base64," + binary_data4
+    });
+    $(".view_box:nth-child(4)").append(img);
+    img_del($(".view_box:nth-child(4)"));
+    
   function img_del(target){
   target.find("a.img_del").on('click',function(){
     var self = $(this),

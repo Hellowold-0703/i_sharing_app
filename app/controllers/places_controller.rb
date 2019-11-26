@@ -30,9 +30,22 @@ class PlacesController < ApplicationController
 
   # GET /places/1/edit
   def edit
-    @place.images.each do |image|
-    image.cache! unless image.blank?
-    end
+    gon.place = @palce
+    gon.images = @place.images
+
+    require 'base64'
+      binary_data1 = File.read(@place.images[0].file.file)
+      gon.image1 = Base64.strict_encode64(binary_data1)
+      
+      binary_data2 = File.read(@place.images[1].file.file)
+      gon.image2 = Base64.strict_encode64(binary_data2)
+
+      binary_data3 = File.read(@place.images[2].file.file)
+      gon.image3 = Base64.strict_encode64(binary_data3)
+
+      binary_data4 = File.read(@place.images[3].file.file)
+      gon.image4 = Base64.strict_encode64(binary_data4)
+
   end
 
   # POST /places
