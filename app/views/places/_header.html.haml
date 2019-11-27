@@ -8,7 +8,7 @@
   .place__header__log-in
     %li 
   .place__header__all-places
-    = link_to '投稿一覧', all_places_path
+    = link_to '投稿一覧', all_places_path,data: {turbolinks: false}
   .place__header__new-create
-    = link_to '投稿する', new_place_path, data: {"turbolinks" => false}
+    = link_to '投稿する', new_place_path, data: {turbolinks: false}
 

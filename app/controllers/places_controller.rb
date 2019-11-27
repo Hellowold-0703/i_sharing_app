@@ -4,7 +4,7 @@ class PlacesController < ApplicationController
   # GET /places
   # GET /places.json
   def index
-    @places = Place.all
+    @places = Place.includes(:user)
     @hash = Gmaps4rails.build_markers(@places) do |places, marker|
       marker.lat places.latitude
       marker.lng places.longitude
@@ -36,16 +36,21 @@ class PlacesController < ApplicationController
     require 'base64'
       binary_data1 = File.read(@place.images[0].file.file)
       gon.image1 = Base64.strict_encode64(binary_data1)
+
+      if @place.images[1].present?
+        binary_data2 = File.read(@place.images[1].file.file)
+        gon.image2 = Base64.strict_encode64(binary_data2)
+      end
+
+      if @place.images[2].present?
+        binary_data3 = File.read(@place.images[2].file.file)
+        gon.image3 = Base64.strict_encode64(binary_data3)
+      end
       
-      binary_data2 = File.read(@place.images[1].file.file)
-      gon.image2 = Base64.strict_encode64(binary_data2)
-
-      binary_data3 = File.read(@place.images[2].file.file)
-      gon.image3 = Base64.strict_encode64(binary_data3)
-
-      binary_data4 = File.read(@place.images[3].file.file)
-      gon.image4 = Base64.strict_encode64(binary_data4)
-
+      if @place.images[3].present?
+        binary_data4 = File.read(@place.images[3].file.file)
+        gon.image4 = Base64.strict_encode64(binary_data4)
+      end
   end
 
   # POST /places
@@ -53,29 +58,30 @@ class PlacesController < ApplicationController
   def create
     @place = Place.new(place_params)
 
-    respond_to do |format|
       if @place.save
-        format.html { redirect_to @place}
-        format.json { render :show, status: :created, location: @place }
+        respond_to do |format|
+          format.html { redirect_to @place}
+          format.json { render :show, status: :created, location: @place }
+        end
       else
-        format.html { render :new }
-        format.json { render json: @place.errors, status: :unprocessable_entity }
+        flash[:alert] = '未入力の項目があります'
+        redirect_to new_place_path
       end
-    end
   end
 
   # PATCH/PUT /places/1
   # PATCH/PUT /places/1.json
   def update
-    respond_to do |format|
+
       if @place.update(place_params)
-        format.html { redirect_to @place }
-        format.json { render :show, status: :ok, location: @place }
+        respond_to do |format|
+          format.html { redirect_to @place }
+          format.json { render :show, status: :ok, location: @place }
+        end
       else
-        format.html { render :edit }
-        format.json { render json: @place.errors, status: :unprocessable_entity }
+        flash.now[:alert] = '未入力の項目があります'
+        render :edit
       end
-    end
   end
 
   # DELETE /places/1

@@ -2,15 +2,20 @@
   background-color:rgb(219, 219, 219);
 }
   .new__create {
-    padding-top: 60px;
+    padding-top: 80px;
+    padding-bottom: 20px;
     margin: 0 auto;
     width: 600px;
-    min-height: 700px;
   }
     .new__place {
       padding: 20px 0 20px;
       text-align: center;
       background-color: #ffffff;
+      .alert {
+        padding-top: 20px;
+        color: #dd0000;
+        background-color: #fff;
+      }
       h1 {
         font-size: 30px;
         font-weight: bold;

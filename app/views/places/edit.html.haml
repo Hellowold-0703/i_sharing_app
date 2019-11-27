@@ -1,52 +1,13 @@
 .place
   = render partial: 'places/header' 
-
+  
   .new
     .new__create
       .new__place
         %h1 地点の情報を編集
-      
-        = form_for @place do |f|
-          - if @place.errors.any?
-            #error_explanation
-              %ul
-                - @place.errors.full_messages.each do |message|
-                  %li= message
-
-          .field
-            画像 ※必須 最大で４枚アップロードできます
-            .images
-              #file1.view_box
-                = f.label :images
-                = f.file_field :images, class:"file", multiple: true
-              #file2.view_box
-                = f.label :images
-                = f.file_field :images, class:"file", multiple: true           
-              #file3.view_box
-                = f.label :images
-                = f.file_field :images, class:"file", multiple: true
-              #file4.view_box
-                = f.label :images
-                = f.file_field :images, class:"file", multiple: true
-          .field
-            = f.label :title
-            ※必須
-          %p
-            = f.text_field :title,{class: "new__place__title"}
-          .field
-            = f.label :address
-            ※必須
-          %p
-            = f.text_field :address,{class: "new__place__address", placeholder:"例 スターバックス 道玄坂店"}
-          .field
-            = f.label :description
-            ※必須
-          %p
-            = f.text_area :description,{class: "new__place__description",placeholder: "例 とても混雑していたがスターバックスラテは相変わらず美味しい！！"}
-
-          .actions
-            = f.submit '編集する',{class: "btn new__place__btn"}
-
+        
+        = render partial: 'places/form'
+        
         = link_to '詳細', @place
         \・
         = link_to 'トップページ', places_path
