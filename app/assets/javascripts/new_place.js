@@ -20,9 +20,11 @@ $(document).on('turbolinks:load', function() {
   }
   filereader.readAsDataURL(fileprop);
   });
+    
+  if(window.gon != null) {
 
     var img = $('<div class="img_view"><img alt="" class="img"><p><a href="#" class="img_del">削除</a></p></div>');
-
+    
     var binary_data1 = gon.image1
     
     img.find("img").attr({
@@ -63,7 +65,8 @@ $(document).on('turbolinks:load', function() {
     $(".view_box:nth-child(4)").append(img);
     img_del($(".view_box:nth-child(4)"));
     }
-    
+  }
+  
   function img_del(target){
   target.find("a.img_del").on('click',function(){
     var self = $(this),

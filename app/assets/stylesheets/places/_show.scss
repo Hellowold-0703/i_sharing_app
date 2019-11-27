@@ -1,13 +1,14 @@
 .details{
   background-color:rgb(219, 219, 219);
+  padding: 80px 0 20px 0;
 }
   .place__details {
       width: 850px;
-      padding: 60px 40px 40px;
+      padding: 20px 40px 40px;   
       margin: 0 auto;
       background-color: #ffffff;
       &__title {
-        padding-top: 10px;
+        padding: 10px 0 10px 0;
         font-size: 30px;
         text-align: center;
       }

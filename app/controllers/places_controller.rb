@@ -1,39 +1,45 @@
 class PlacesController < ApplicationController
   before_action :set_place, only: [:show, :edit, :update, :destroy]
 
-  # GET /places
-  # GET /places.json
+  
   def index
     @places = Place.includes(:user)
     @hash = Gmaps4rails.build_markers(@places) do |places, marker|
       marker.lat places.latitude
       marker.lng places.longitude
-      marker.infowindow places.address 
+      marker.infowindow render_to_string( partial: "places/infowindow",
+                                          locals: { place: places})
+      marker.json({id: places.id})
     end
   end
 
   def all
-    @places = Place.all
+    @places = Place.includes(:user)
   end
 
-  # GET /places/1
-  # GET /places/1.json
+
   def show
     @comment = Comment.new
     @comments = @place.comments.includes(:user)
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
-  # GET /places/new
+  
   def new
     @place = Place.new
   end
 
-  # GET /places/1/edit
+ 
   def edit
     gon.place = @palce
-    gon.images = @place.images
+    gon.image = @place.images
+    
 
     require 'base64'
+      
       binary_data1 = File.read(@place.images[0].file.file)
       gon.image1 = Base64.strict_encode64(binary_data1)
 
@@ -53,8 +59,7 @@ class PlacesController < ApplicationController
       end
   end
 
-  # POST /places
-  # POST /places.json
+ 
   def create
     @place = Place.new(place_params)
 
@@ -69,10 +74,8 @@ class PlacesController < ApplicationController
       end
   end
 
-  # PATCH/PUT /places/1
-  # PATCH/PUT /places/1.json
+  
   def update
-
       if @place.update(place_params)
         respond_to do |format|
           format.html { redirect_to @place }
@@ -84,8 +87,7 @@ class PlacesController < ApplicationController
       end
   end
 
-  # DELETE /places/1
-  # DELETE /places/1.json
+  
   def destroy
     @place.destroy
     respond_to do |format|
@@ -95,12 +97,12 @@ class PlacesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+   
     def set_place
       @place = Place.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    
     def place_params
       params.require(:place).permit(:title, :address, :description, {images: []}, :latitude, :longitude, :images_cache).merge(user_id: current_user.id)
     end

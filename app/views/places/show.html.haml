@@ -51,40 +51,9 @@
             = @place.description
     .place__comments
       .place__comment__container
-        .place__comment
-          %ul.comment__items
-            - @comments.each do |c|
-              - if c.user_id == current_user.id
-                %li.clearfix.comment__self
-                  %a.comment__user
-                    %figure
-                      %figcaption.bold
-                        = c.user.name
-                  .comment__body
-                    .comment__body__text
-                      = c.comment
-                    %i
-              - elsif @place.user.id == c.user_id
-                %li.clearfix
-                  %a.comment__user
-                    %figure
-                      %figcaption.bold
-                        = c.user.name
-                        %span 投稿者
-                  .comment__body
-                    .comment__body__text
-                      = c.comment
-                    %i
-              - else
-                %li.clearfix
-                  %a.comment__user
-                    %figure
-                      %figcaption.bold
-                        = c.user.name
-                  .comment__body
-                    .comment__body__text
-                      = c.comment
-                    %i
+
+        = render partial: 'places/comment', collection: @comments, as: :comment
+        
         .place__comment
           .place__comment__content
           
