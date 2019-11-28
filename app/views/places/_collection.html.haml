@@ -15,3 +15,6 @@
         %i.far.fa-edit
       = link_to place, method: :delete, data: { confirm: '削除してよろしいですか?' } do
         %i.far.fa-trash-alt
+    .likes_count
+      .like-link{id: "like-link-#{place.id}"}
+        = render partial: 'likes/like', locals: {place: place}
