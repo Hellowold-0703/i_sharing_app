@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_17_142848) do
+ActiveRecord::Schema.define(version: 2019_11_28_121310) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "comment"
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(version: 2019_11_17_142848) do
     t.datetime "updated_at", null: false
     t.index ["place_id"], name: "index_comments_on_place_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "place_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["place_id"], name: "index_likes_on_place_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "places", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -32,6 +41,7 @@ ActiveRecord::Schema.define(version: 2019_11_17_142848) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
+    t.integer "likes_count"
     t.index ["address"], name: "index_places_on_address"
     t.index ["user_id"], name: "index_places_on_user_id"
   end
@@ -52,5 +62,7 @@ ActiveRecord::Schema.define(version: 2019_11_17_142848) do
 
   add_foreign_key "comments", "places"
   add_foreign_key "comments", "users"
+  add_foreign_key "likes", "places"
+  add_foreign_key "likes", "users"
   add_foreign_key "places", "users"
 end

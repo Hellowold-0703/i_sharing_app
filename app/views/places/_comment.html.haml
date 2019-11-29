@@ -1,0 +1,42 @@
+.place__comment
+  %ul.comment__items
+    - if comment.user_id == current_user.id
+      %li.clearfix.comment__self
+        %a.comment__user
+          %figure
+            %figcaption.bold
+              = comment.user.name
+        .comment__body
+          .comment__body__text
+            = comment.comment
+          .date_time
+            %i.far.fa-clock
+            = date_format(comment.created_at)
+          %i
+    - elsif @place.user.id == comment.user_id
+      %li.clearfix
+        %a.comment__user
+          %figure
+            %figcaption.bold
+              = comment.user.name
+              %span 投稿者
+        .comment__body
+          .comment__body__text
+            = comment.comment
+          .date_time
+            %i.far.fa-clock
+            = date_format(comment.created_at)
+          %i
+    - else
+      %li.clearfix
+        %a.comment__user
+          %figure
+            %figcaption.bold
+              = comment.user.name
+        .comment__body
+          .comment__body__text
+            = comment.comment
+          .date_time
+            %i.far.fa-clock
+            = date_format(comment.created_at)
+          %i

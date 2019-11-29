@@ -1,45 +1,63 @@
-div {
-  &.actions {
-    margin-bottom: 10px;
-  }
-}
-.field_with_errors {
-  padding: 2px;
-  background-color: red;
-  display: table;
-}
-
-#error_explanation {
-  width: 450px;
-  border: 2px solid red;
-  padding: 7px 7px 0;
-  margin-bottom: 20px;
-  background-color: #f0f0f0;
-}
-
-p{
-  margin-bottom: 20px;
-}
-
 .new {
   background-color:rgb(219, 219, 219);
 }
   .new__create {
-    padding-top: 60px;
+    padding-top: 80px;
+    padding-bottom: 20px;
     margin: 0 auto;
     width: 600px;
-    min-height: 700px;
   }
     .new__place {
       padding: 20px 0 20px;
       text-align: center;
       background-color: #ffffff;
+      .alert {
+        padding-top: 20px;
+        color: #dd0000;
+        background-color: #fff;
+      }
       h1 {
         font-size: 30px;
         font-weight: bold;
       }
       .field {
+        margin: 30px 0 10px 0;
         font-size: 20px;
+      }
+      .images {
+        display: flex;
+      }
+      .view_box {
+        display: inline-block;
+        overflow: hidden;
+        position: relative;
+        padding: 1em;
+        margin: 0 5px 0 5px;
+        width: 100px;
+        height: 130px;
+        border: 1px solid #dd0000;
+        background: #dd0000;
+        color:#fff;
+      } 
+      .view_box input[type=file] {
+        opacity: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        margin: 0;
+        font-size: 100px;
+        cursor: pointer;
+      }
+      .img_view {
+        width: 100px;
+        height: 80px;
+        a {
+          color: #ffffff;
+        }
+        img {
+          width: 100px;
+          height: 80px;
+        }
       }
       &__title {
         padding-left: 10px;
@@ -80,4 +98,13 @@ p{
         text-decoration: none;
         color: blue;
       }
+      p {
+        margin-bottom: 20px;
+      }
+      li {
+        list-style: none;
+      }
+    }
+    .field_with_errors {
+      display: inline;
     }

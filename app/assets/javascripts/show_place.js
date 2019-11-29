@@ -3,5 +3,5 @@ $(document).on('turbolinks:load', function() {
     var $thisImg = $(this).attr("src");
     var $thisAlt = $(this).attr("alt")
     $(".place__details__images-main img").attr({src:$thisImg,alt:$thisAlt});
-  });
+  });   
 });

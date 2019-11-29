@@ -1,6 +1,10 @@
 @import "./reset";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 @import "user";
+@import "flash";
 @import "./places/new";
 @import "./places/all";
 @import "./places/show";
+@import "./places/edit";
 @import "./places/index";

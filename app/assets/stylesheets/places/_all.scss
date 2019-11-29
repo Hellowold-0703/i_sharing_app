@@ -3,13 +3,14 @@
   margin: 0 auto;
   padding-top: 60px;
   height: 100%;
-  &__pictures {
-    text-align: center;
-  }
   .place__box {
     float: left;
     margin-top: 10px;
     margin-left: 47px;
     height: 300px;
+  }
+  a {
+    color: blue; 
+    text-decoration: none;
   }
 }

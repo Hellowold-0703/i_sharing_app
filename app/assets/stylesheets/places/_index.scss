@@ -122,9 +122,14 @@
           }
         }
         &__item__address{
+          display: flex;
           font-size: 16px;
           margin-bottom: 20px;
         }
+          &__link {
+            float: right;
+            margin-right: auto;
+          }
         a {
           text-decoration: none;
         }
@@ -143,7 +148,15 @@
     height: 400px;
   }
 
-  img {
-    width: 400px;
-    height: 300px;
-  }
+a {
+  text-decoration: none;
+  color: blue;
+  cursor: pointer;
+} 
+
+.far {
+  margin-right: 10px;
+}
+.fa-heart{
+  margin-right: 0px;
+}
