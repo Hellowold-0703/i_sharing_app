@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :users, only: [:edit, :update]
   root to: 'places#index'
 
-  get    'users/:id/likes' => 'users#likes'
+  get    '/users/:id/likes' => 'users#likes'
   post   '/like/:place_id' => 'likes#like',   as: 'like'
   delete '/like/:place_id' => 'likes#unlike', as: 'unlike'
 end
