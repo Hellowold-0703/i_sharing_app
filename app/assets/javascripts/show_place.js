@@ -5,3 +5,4 @@ $(document).on('turbolinks:load', function() {
     $(".place__details__images-main img").attr({src:$thisImg,alt:$thisAlt});
   });   
 });
+
