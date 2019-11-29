@@ -1,0 +1,57 @@
+.place
+  = render partial: 'places/header' 
+  .place__all
+    .place_user_name
+      %h1
+        = current_user.name
+        さんの投稿一覧
+      .place__all__pictures
+      - @places.each do |place|
+        .place__box
+          .place__list__item
+            .place__list__item__user
+              = place.title
+            .place__list__item__time 
+              = place.created_at.strftime("%Y/%m/%d %H:%M")
+          .place__list__item__image
+            = link_to place do
+              = image_tag place.images[0].url
+          .place__list__item__address
+            = place.address
+            .place__list__link
+            - if place.user_id == current_user.id
+              = link_to edit_place_path(place) do
+                %i.far.fa-edit
+              = link_to place, method: :delete, data: { confirm: '削除してよろしいですか?' } do
+                %i.far.fa-trash-alt
+            .likes_count
+              .like-link{id: "like-link-#{place.id}"}
+                = render partial: 'likes/like', locals: {place: place}
+
+    .place_likes_user_name
+      %h2 
+        = current_user.name
+        さんのいいね！一覧
+      .place_likes_all.clearfix
+      - @likes.each do |like|
+        .place__box
+          .place__list__item
+            .place__list__item__user
+              = like.place.title
+            .place__list__item__time 
+              = like.place.created_at.strftime("%Y/%m/%d %H:%M")
+          .place__list__item__image
+            = link_to like.place do
+              = image_tag like.place.images[0].url
+          .place__list__item__address
+            = like.place.address
+            .place__list__link
+            - if like.place.user_id == current_user.id
+              = link_to edit_place_path(like.place) do
+                %i.far.fa-edit
+              = link_to like.place, method: :delete, data: { confirm: '削除してよろしいですか?' } do
+                %i.far.fa-trash-alt
+            .likes_count
+              .like-link{id: "like-link-#{like.place.id}"}
+                = render partial: 'likes/like', locals: {place: like.place}
+

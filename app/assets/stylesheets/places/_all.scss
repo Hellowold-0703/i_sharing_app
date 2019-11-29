@@ -13,4 +13,16 @@
     color: blue; 
     text-decoration: none;
   }
+  .place_user_name h1 {
+    color: blue;
+    font-size: 30px;
+  }
+  .place_likes_user_name {
+    float: left;
+    clear: both;
+    h2 {
+      color: blue;
+      font-size: 30px;
+    }
+  }
 }
