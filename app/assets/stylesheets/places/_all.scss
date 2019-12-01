@@ -10,7 +10,19 @@
     height: 300px;
   }
   a {
-    color: blue; 
+    color: rgb(0, 60, 255);; 
     text-decoration: none;
+  }
+  .place_user_name h1 {
+    color: rgb(0, 60, 255);;
+    font-size: 30px;
+  }
+  .place_likes_user_name {
+    float: left;
+    clear: both;
+    h2 {
+      color: rgb(0, 60, 255);;
+      font-size: 30px;
+    }
   }
 }

@@ -49,6 +49,8 @@
           %h3 説明
           .place__description
             = @place.description
+          %i.far.fa-heart
+            = @place.likes_count
       
     .place__comments
       .place__comment__container

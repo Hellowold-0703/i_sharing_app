@@ -9,6 +9,11 @@ class UsersController < ApplicationController
       render :edit
     end
   end
+
+  def likes
+    @likes = current_user.likes.order("RAND()").limit(8)
+    @places = current_user.places.order("RAND()").limit(8)
+  end
   
   def user_params
     params.require(:user).permit(:name, :email)
