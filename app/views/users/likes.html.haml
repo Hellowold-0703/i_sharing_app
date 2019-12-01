@@ -10,14 +10,16 @@
         .place__box
           .place__list__item
             .place__list__item__user
-              = place.title
+              %span
+                = place.title
             .place__list__item__time 
               = place.created_at.strftime("%Y/%m/%d %H:%M")
           .place__list__item__image
             = link_to place do
               = image_tag place.images[0].url
           .place__list__item__address
-            = place.address
+            %span
+              = place.address
             .place__list__link
             - if place.user_id == current_user.id
               = link_to edit_place_path(place) do
@@ -37,14 +39,16 @@
         .place__box
           .place__list__item
             .place__list__item__user
-              = like.place.title
+              %span
+                = like.place.title
             .place__list__item__time 
               = like.place.created_at.strftime("%Y/%m/%d %H:%M")
           .place__list__item__image
             = link_to like.place do
               = image_tag like.place.images[0].url
           .place__list__item__address
-            = like.place.address
+            %span
+              = like.place.address
             .place__list__link
             - if like.place.user_id == current_user.id
               = link_to edit_place_path(like.place) do
