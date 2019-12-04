@@ -6,6 +6,35 @@
       .new__place
         %h1 地点の情報を入力
 
-        = render partial: 'places/form' 
+        = render partial: 'layouts/notifications'
 
-        = link_to 'トップページ', places_path
+        = form_for @place do |f|
+          .field
+            画像 ※必須 最大で４枚アップロードできます
+            .images
+            = f.fields_for :images do |img|
+              .view_box
+                = f.label :images
+                = img.file_field :image, class:"file"
+                  
+          .field
+            = f.label :title
+            ※必須
+          %p
+            = f.text_field :title,{class: "new__place__title"}
+          .field
+            = f.label :address
+            ※必須
+          %p
+            = f.text_field :address,{class: "new__place__address", placeholder:"例 スターバックス 道玄坂店"}
+          .field
+            = f.label :description
+            ※必須
+          %p
+            = f.text_area :description,{class: "new__place__description",placeholder: "例 とても混雑していたがスターバックスラテは相変わらず美味しい！！"}
+
+          .actions
+            = f.submit '投稿する',{class: "btn new__place__btn"}
+        %p
+        .footer
+          = link_to 'トップページ', places_path

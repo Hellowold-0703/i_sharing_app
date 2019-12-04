@@ -8,9 +8,18 @@
       margin: 0 auto;
       background-color: #ffffff;
       &__title {
+        position: relative;
+        display: flex;
+        justify-content: center;
         padding: 10px 0 10px 0;
         font-size: 30px;
-        text-align: center;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+      .link__edit__page {
+        position: absolute;
+        right: 0;
       }
       &__images {
         float: left;

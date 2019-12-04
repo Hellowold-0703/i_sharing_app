@@ -5,9 +5,42 @@
     .new__create
       .new__place
         %h1 地点の情報を編集
+
+        = render partial: 'layouts/notifications'
         
-        = render partial: 'places/form'
-        
-        = link_to '詳細', @place
-        \・
-        = link_to 'トップページ', places_path
+        = form_for @place do |f|
+          .field
+            画像 ※必須 最大で４枚アップロードできます
+            .images
+            - @place.images.each_with_index do |image, i|
+              .view_box
+                = f.label :images
+                = f.fields_for :images, image do |img|
+                  = img.file_field :image, class:"file"
+                  - if image.id.present?
+                    .img_view 
+                      = image_tag "#{img.object.image}", class: "place_image"
+                      %a{ class: "delete-btn", "data-imgid": "#{image.id}"}削除
+          .field
+            = f.label :title
+            ※必須
+          %p
+            = f.text_field :title,{class: "new__place__title"}
+          .field
+            = f.label :address
+            ※必須
+          %p
+            = f.text_field :address,{class: "new__place__address", placeholder:"例 スターバックス 道玄坂店"}
+          .field
+            = f.label :description
+            ※必須
+          %p
+            = f.text_area :description,{class: "new__place__description",placeholder: "例 とても混雑していたがスターバックスラテは相変わらず美味しい！！"}
+
+          .actions
+            = f.submit '編集する',{class: "btn new__place__btn"}
+        %p
+        .footer
+          = link_to '詳細', @place
+          \・
+          = link_to 'トップページ', places_path

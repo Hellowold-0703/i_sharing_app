@@ -5,12 +5,16 @@
       .place__details__page
         .place__details__title
           = @place.title
+          - if @place.user_id == current_user.id
+            .link__edit__page
+              = link_to edit_place_path do
+                %i.far.fa-edit
         .place__details__images
           .place__details__images-main
-            = image_tag @place.images[0].url
+            = image_tag @place.images[0].image.url
           .place__details__images-thumbnails
             - @place.images.each do |image|
-              = image_tag image.url
+              = image_tag image.image.url
         .place__details__map
           #map{style: "width: 400px; height: 400px;"}
           :javascript
