@@ -21,42 +21,20 @@ class PlacesController < ApplicationController
   def show
     @comment = Comment.new
     @comments = @place.comments.includes(:user)
-    respond_to do |format|
-      format.html
-      format.json
-    end
   end
 
   
   def new
     @place = Place.new
+    4.times {@place.images.build}
   end
 
  
   def edit
-    gon.place = @palce
-    gon.image = @place.images
-    
-
-    require 'base64'
-      
-      binary_data1 = File.read(@place.images[0].file.file)
-      gon.image1 = Base64.strict_encode64(binary_data1)
-
-      if @place.images[1].present?
-        binary_data2 = File.read(@place.images[1].file.file)
-        gon.image2 = Base64.strict_encode64(binary_data2)
-      end
-
-      if @place.images[2].present?
-        binary_data3 = File.read(@place.images[2].file.file)
-        gon.image3 = Base64.strict_encode64(binary_data3)
-      end
-      
-      if @place.images[3].present?
-        binary_data4 = File.read(@place.images[3].file.file)
-        gon.image4 = Base64.strict_encode64(binary_data4)
-      end
+    image_amount = 4
+    image_amount.freeze
+    num = image_amount - (@place.images.length)
+    num.times {@place.images.build}
   end
 
  
@@ -76,17 +54,16 @@ class PlacesController < ApplicationController
 
   
   def update
-      if @place.update(place_params)
+      if @place.update(update_params)
         respond_to do |format|
           format.html { redirect_to @place }
           format.json { render :show, status: :ok, location: @place }
         end
       else
-        flash.now[:alert] = '未入力の項目があります'
-        render :edit
+        flash[:alert] = '未入力の項目があります'
+        redirect_to edit_place_path
       end
   end
-
   
   def destroy
     @place.destroy
@@ -104,6 +81,10 @@ class PlacesController < ApplicationController
 
     
     def place_params
-      params.require(:place).permit(:title, :address, :description, {images: []}, :latitude, :longitude, :images_cache).merge(user_id: current_user.id)
+      params.require(:place).permit(:title, :address, :description, :latitude, :longitude, images_attributes: [:image], ).merge(user_id: current_user.id)
+    end
+
+    def update_params
+      params.require(:place).permit(:title, :address, :description, :latitude, :longitude, images_attributes: [:image, :id], ).merge(user_id: current_user.id)
     end
 end

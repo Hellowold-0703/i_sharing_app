@@ -9,6 +9,15 @@ Rails.application.routes.draw do
   resources :users, only: [:edit, :update]
   root to: 'places#index'
 
+  namespace :api do
+    resources "destroy", controller: :places, only: :image_destroy, defaults: { format: 'json'} do
+      collection do
+        delete "image_destroy"
+      end
+    end
+  end
+
+
   get    '/users/:id/likes' => 'users#likes'
   post   '/like/:place_id' => 'likes#like',   as: 'like'
   delete '/like/:place_id' => 'likes#unlike', as: 'unlike'
