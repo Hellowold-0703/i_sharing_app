@@ -38,8 +38,9 @@
             = f.text_area :description,{class: "new__place__description",placeholder: "例 とても混雑していたがスターバックスラテは相変わらず美味しい！！"}
 
           .actions
-            = f.submit '投稿する',{class: "btn new__place__btn"}
-        
-        = link_to '詳細', @place
-        \・
-        = link_to 'トップページ', places_path
+            = f.submit '編集する',{class: "btn new__place__btn"}
+        %p
+        .footer
+          = link_to '詳細', @place
+          \・
+          = link_to 'トップページ', places_path
