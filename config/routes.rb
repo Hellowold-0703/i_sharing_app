@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:edit, :update]
   root to: 'places#index'
+  resources :notifications, only: [:index, :destroy]
 
   namespace :api do
     resources "destroy", controller: :places, only: :image_destroy, defaults: { format: 'json'} do

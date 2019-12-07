@@ -1,0 +1,18 @@
+.place
+  = render partial: 'places/header'
+  .place__notifications
+    .place__notification
+      .place__notification__list
+        .notification__title
+          %h1
+            通知
+            
+        - notifications = @notifications.where.not(visitor_id: current_user.id)
+        - if notifications.exists?
+          = render notifications
+          = paginate notifications
+        - else
+          %p
+          通知はありません
+        .notification__link
+          = link_to 'トップページ', root_path

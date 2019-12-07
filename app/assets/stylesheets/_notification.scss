@@ -1,0 +1,73 @@
+.place__notifications {
+background-color:rgb(219, 219, 219);
+}
+  .place__notification {
+    padding-top: 80px;
+    padding-bottom: 20px;
+    margin: 0 auto;
+    width: 600px; 
+    &__list {
+    position: relative;
+    padding: 20px 100px 20px 100px;
+    text-align: left;
+    background-color: #ffffff;
+    }
+     .notification__title {
+       text-align: center;
+       margin-bottom: 30px;
+     }
+     h1{
+       font-size: 30px;
+       font-weight: bold;
+     }
+     .notification {
+       display: flex;
+     }
+      .col-md-6 {
+        margin-bottom: 30px;
+        border-bottom: 1px outset;
+        letter-spacing: 1px;
+        .form-inline {
+          position: relative;
+        }
+        & p {
+          opacity: 0.5;
+        } 
+      }
+        .text-muted {
+          margin-top: 10px;
+          width: 250px;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
+      .notification__link {
+        text-align: center;
+        font-weight: bold;
+        text-decoration: none;
+        color: #003cff;
+      }
+      .date__time {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+      }
+      .dust__box {
+        margin-left: 20px;
+        line-height: 50px;
+        }
+    .pagination {
+      position: absolute;
+      bottom: 50px;
+      right: 100px;
+    }
+  }
+  .fa-bell {
+   padding-top: 5px;
+  }
+  .fa-circle{
+    position: absolute;
+    padding-left: 0.5rem;
+    padding-top: 0.3rem;
+    color: #fffb00;
+  }

@@ -3,7 +3,9 @@ class LikesController < ApplicationController
 
   def like
     like = current_user.likes.new(place_id: @place.id)
-    like.save
+    if like.save
+      @place.create_notification_like(current_user)
+    end
   end
 
   def unlike
