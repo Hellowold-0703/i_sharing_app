@@ -60,7 +60,7 @@ class PlacesController < ApplicationController
           format.json { render :show, status: :ok, location: @place }
         end
       else
-        flash[:alert] = '未入力の項目があります'
+        flash[:alert] = '編集できません。内容を確認してください。'
         redirect_to edit_place_path
       end
   end

@@ -8,7 +8,7 @@ background-color:rgb(219, 219, 219);
     width: 600px; 
     &__list {
     position: relative;
-    padding: 20px 100px 20px 100px;
+    padding: 20px 95px 20px 95px;
     text-align: left;
     background-color: #ffffff;
     }
@@ -55,11 +55,94 @@ background-color:rgb(219, 219, 219);
       .dust__box {
         margin-left: 20px;
         line-height: 50px;
-        }
+      }
     .pagination {
-      position: absolute;
-      bottom: 50px;
-      right: 100px;
+      width: 100%;
+      height: 50px;
+    }
+    .pagination span.current,
+    .pagination span.page.gap {
+      float: left;
+      padding: 0 16px;
+      line-height: 34px;
+      border-right: 1px solid #DDD;
+      text-decoration: none;
+    }
+    
+    .pagination span.current {
+      border-top: 1px solid #DDD;
+      border-bottom: 1px solid #DDD;
+      background-color: #C7EEFE;
+    }
+    .pagination span.first,
+    .pagination span.first {
+      float: left;
+      padding: 0 16px;
+      line-height: 34px;
+      border-right: 1px solid #DDD;
+      border-left: 1px solid #DDD;
+      text-decoration: none;
+    }
+
+    .pagination span.first {
+      border-top: 1px solid #DDD;
+      border-bottom: 1px solid #DDD;
+      border-left: 1px solid #DDD;
+    }
+    .pagination span.prev,
+    .pagination span.prev {
+      float: left;
+      padding: 0 16px;
+      line-height: 34px;
+      border-right: 1px solid #DDD;
+      text-decoration: none;
+    }
+    
+    .pagination span.prev {
+      border-top: 1px solid #DDD;
+      border-bottom: 1px solid #DDD;
+    }
+    .pagination span.page,
+    .pagination span.page {
+      float: left;
+      padding: 0 14px;
+      line-height: 34px;
+      border-right: 1px solid #DDD;
+      text-decoration: none;
+    }
+    
+    .pagination span.page {
+      border-top: 1px solid #DDD;
+      border-bottom: 1px solid #DDD;
+    }
+    .pagination span.last,
+    .pagination span.last {
+      float: left;
+      padding: 0 14px;
+      line-height: 34px;
+      border-right: 1px solid #DDD;
+      text-decoration: none;
+    }
+    
+    .pagination span.last {
+      border-top: 1px solid #DDD;
+      border-bottom: 1px solid #DDD;
+    }
+    .pagination span.next,
+    .pagination span.next {
+      float: left;
+      padding: 0 14px;
+      line-height: 34px;
+      border-right: 1px solid #DDD;
+      text-decoration: none;
+    }
+
+    .pagination span.next {
+      border-top: 1px solid #DDD;
+      border-bottom: 1px solid #DDD;
+    }
+    .notification__link {
+      clear: both;
     }
   }
   .fa-bell {
