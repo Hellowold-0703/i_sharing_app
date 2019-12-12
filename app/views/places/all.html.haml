@@ -1,5 +1,16 @@
 .place
   = render partial: 'places/header' 
   .place__all
+    = form_with(url: all_places_path, method: :get, class: "place__all__form", local: true) do
+      = text_field_tag :search
+      = submit_tag '検索する', class: "btn-square"
     .place__all__pictures
+    - if @places.count == 0
+      .count
+        %span 該当する場所はありませんでした
+    - else
+      .count
+        = @places.count
+        件
       = render partial: 'places/collection', collection: @places, as: :place
+     

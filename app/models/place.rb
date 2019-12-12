@@ -18,6 +18,14 @@ class Place < ApplicationRecord
   has_many :like_users, through: :likes, source: :user
   has_many :notifications, dependent: :destroy
 
+  def self.search(search)
+    if search
+      Place.where(['address LIKE ?', "%#{search}%"])
+    else
+      Place.all
+    end
+  end
+
   def create_notification_like(current_user)
 
     temp = Notification.where(["visitor_id = ? and visited_id = ? and place_id = ? and action = ?", current_user.id, user_id, id, 'like'])

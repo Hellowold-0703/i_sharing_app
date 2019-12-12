@@ -14,7 +14,7 @@ class PlacesController < ApplicationController
   end
 
   def all
-    @places = Place.includes(:user)
+    @places = Place.includes(:user).search(params[:search])
   end
 
 
