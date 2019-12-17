@@ -4,11 +4,17 @@
   .place__header__user
     = link_to current_user.name ,edit_user_path(current_user)
   .place__header__sign-up
-    %li 
+    = link_to notifications_path,data: {turbolinks: false} do
+      %span通知
+      - if unchecked_notifications.any?
+        %span.fa-stack
+          %i.far.fa-bell.fa-lg.fa-stack-2x{style: "font-size:1.5em;"}
+          %i.fas.fa-circle.n-circle.fa-stack-1x
+      - else
+        %i.far.fa-bell.fa-lg{style: "font-size:1.5em;"}
   .place__header__log-in
     = link_to 'マイページ', "/users/#{current_user.id}/likes",data: {turbolinks: false}
   .place__header__all-places
     = link_to '投稿一覧', all_places_path,data: {turbolinks: false}
   .place__header__new-create
     = link_to '投稿する', new_place_path, data: {turbolinks: false}
-

@@ -4,7 +4,7 @@
     = render partial: 'places/header'
     .place__content
       .place__map
-        #map{:style => "width: 1000px; height: 550px;"}
+        #map{:style => "width: 1000px; height: 650px;"}
         :javascript
           handler = Gmaps.build('Google');
           handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
@@ -15,8 +15,8 @@
       .place__list
         .place__list__items
         = render partial: 'places/collection', collection: @places, as: :place
-        :javascript
-          $(document).on('turbolinks:load',function() { 
-            $(".place__list").animate({ scrollTop: $(".place__list")[0].scrollHeight}, 'sllow');
-          });
+      :javascript
+        $(document).on('turbolinks:load',function() { 
+          $(".place__list").animate({ scrollTop: $(".place__list")[0].scrollHeight}, 'sllow');
+        });
     .place__footer

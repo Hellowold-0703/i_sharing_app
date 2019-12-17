@@ -1,0 +1,39 @@
+- visitor = notification.visitor
+- visited = notification.visited
+.notification
+  .col-md-6.mx-auto
+    .form-inline
+      %span
+        %strong
+        = visitor.name
+        さんが
+        
+        - case notification.action
+        - when 'like' then
+          = link_to notification.place do
+            あなたの投稿
+            = notification.place.title
+          にいいね!しました
+        - when 'comment' then
+          - if notification.place.user_id == visited.id
+            = link_to notification.place do
+              あなたの投稿
+              = notification.place.title
+            にコメントしました
+          - else
+            %span
+              = link_to place_path(notification.place) do
+                %strong
+                  = notification.place.user.name
+                  さんの投稿
+                  = notification.place.title
+              にコメントしました
+          .notification__comment
+            %p.text-muted.mb-0
+              = Comment.find_by(id: notification.comment_id)&.comment
+        .date__time
+          %i.far.fa-clock
+            = date_format(notification.created_at)
+  .dust__box
+    = link_to notification_path(notification), method: :delete do
+      %i.far.fa-trash-alt
