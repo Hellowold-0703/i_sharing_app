@@ -15,6 +15,10 @@ class PlacesController < ApplicationController
 
   def all
     @places = Place.includes(:user).search(params[:search])
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
 
