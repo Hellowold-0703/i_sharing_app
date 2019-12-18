@@ -5,6 +5,7 @@
       %h1
         = current_user.name
         さんの投稿一覧
+        = paginate @places
       .place__all__pictures
       - @places.each do |place|
         .place__box

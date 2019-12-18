@@ -100,6 +100,11 @@
       }
       .place__box {
         position: relative;
+        .active {
+          .fa-heart {
+            color: red;
+          }
+        }
         .fa-heart{
           position: absolute;
           right:0;
@@ -187,7 +192,4 @@ a {
 
 .far {
   margin-right: 10px;
-}
-.active .fa-heart {
-  color: red;
 }

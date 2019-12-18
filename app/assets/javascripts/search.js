@@ -14,7 +14,7 @@ $(function() {
                         </div>
                       </div>
                       <div class="place__list__item__image">
-                        <a href="/places/45"><img src="${place.image.url}">
+                        <a href="/places/${place.id}"><img src="${place.image.url}">
                         </a>
                       </div>
                       <div class="place__list__item__address">
@@ -29,10 +29,13 @@ $(function() {
                             <i class="far fa-trash-alt"></i>
                           </a>
                         </div>
-                          <i class="far fa-heart">
-                            <span class="fade-in-down">
-                            ${place.likes_count}
-                            </span>
+                        <div class="likes_count">
+                          <div class="like-link" id="like-link-${place.id}">
+                            <a data-remote="true" rel="nofollow" data-method="post" href="/like/${place.id}">
+                              <i class="far fa-heart">
+                                <span class="fade-in-down">
+                                ${place.likes_count}
+                                </span>
                               </i>
                             </a>
                           </div>
@@ -50,18 +53,23 @@ $(function() {
                     </div>
                   </div>
                     <div class="place__list__item__image">
-                      <a href="/places/45"><img src="${place.image.url}">
+                      <a href="/places/${place.id}"><img src="${place.image.url}">
                       </a>
                     </div>
                     <div class="place__list__item__address">
                       <span>
                       ${place.address}
                       </span>
-                        <i class="far fa-heart">
-                          <span class="fade-in-down">
-                          ${place.likes_count}
-                          </span>
-                        </i>
+                      <div class="likes_count">
+                      <div class="like-link" id="like-link-${place.id}">
+                        <a data-remote="true" rel="nofollow" data-method="post" href="/like/${place.id}">
+                          <i class="far fa-heart">
+                            <span class="fade-in-down">
+                            ${place.likes_count}
+                            </span>
+                          </i>
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>`
