@@ -1,6 +1,6 @@
 .place__header
   .place__header__logo
-    = link_to 'i sharing', root_path
+    = link_to 'i sharing', root_path,data: {turbolinks: false}
   .place__header__user
     = link_to current_user.name ,edit_user_path(current_user)
   .place__header__sign-up

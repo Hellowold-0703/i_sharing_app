@@ -25,6 +25,10 @@ class PlacesController < ApplicationController
   def show
     @comment = Comment.new
     @comments = @place.comments.includes(:user)
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   
