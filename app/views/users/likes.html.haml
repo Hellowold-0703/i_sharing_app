@@ -5,6 +5,7 @@
       %h1
         = current_user.name
         さんの投稿一覧
+        = paginate @places
       .place__all__pictures
       - @places.each do |place|
         .place__box
@@ -20,12 +21,12 @@
           .place__list__item__address
             %span
               = place.address
-            .place__list__link
             - if place.user_id == current_user.id
-              = link_to edit_place_path(place) do
-                %i.far.fa-edit
-              = link_to place, method: :delete, data: { confirm: '削除してよろしいですか?' } do
-                %i.far.fa-trash-alt
+              .place__list__link
+                = link_to edit_place_path(place) do
+                  %i.far.fa-edit
+                = link_to place, method: :delete, data: { confirm: '削除してよろしいですか?' } do
+                  %i.far.fa-trash-alt
             .likes_count
               .like-link{id: "like-link-#{place.id}"}
                 = render partial: 'likes/like', locals: {place: place}
@@ -49,12 +50,12 @@
           .place__list__item__address
             %span
               = like.place.address
-            .place__list__link
             - if like.place.user_id == current_user.id
-              = link_to edit_place_path(like.place) do
-                %i.far.fa-edit
-              = link_to like.place, method: :delete, data: { confirm: '削除してよろしいですか?' } do
-                %i.far.fa-trash-alt
+              .place__list__link
+                = link_to edit_place_path(like.place) do
+                  %i.far.fa-edit
+                = link_to like.place, method: :delete, data: { confirm: '削除してよろしいですか?' } do
+                  %i.far.fa-trash-alt
             .likes_count
               .like-link{id: "like-link-#{like.place.id}"}
                 = render partial: 'likes/like', locals: {place: like.place}

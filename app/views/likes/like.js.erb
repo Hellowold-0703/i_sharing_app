@@ -1,1 +1,2 @@
 $("<%= @id_name %>").html('<%= escape_javascript(render("likes/like", place: @place  ))%>');
+$("<%= @id_name %> .fa-heart").css("color", "red");

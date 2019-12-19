@@ -15,12 +15,20 @@ class PlacesController < ApplicationController
 
   def all
     @places = Place.includes(:user).search(params[:search])
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
 
   def show
     @comment = Comment.new
     @comments = @place.comments.includes(:user)
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   

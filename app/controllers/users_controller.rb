@@ -11,8 +11,8 @@ class UsersController < ApplicationController
   end
 
   def likes
-    @likes = current_user.likes.order("RAND()").limit(8)
-    @places = current_user.places.order("RAND()").limit(8)
+    @likes = current_user.likes.page(params[:page]).per(8)
+    @places = current_user.places.page(params[:page]).per(8)
   end
   
   def user_params

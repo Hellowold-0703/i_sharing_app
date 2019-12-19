@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 2019_12_06_104807) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
-    t.integer "likes_count"
+    t.integer "likes_count", default: 0
     t.index ["address"], name: "index_places_on_address"
     t.index ["user_id"], name: "index_places_on_user_id"
   end

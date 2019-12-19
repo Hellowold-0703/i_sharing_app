@@ -98,6 +98,20 @@
           text-align:left;
         }
       }
+      .place__box {
+        position: relative;
+        .active {
+          .fa-heart {
+            color: red;
+          }
+        }
+        .fa-heart{
+          position: absolute;
+          right:0;
+          margin-right: 10px;
+          color: #434a54;
+        }
+      }
       &__list {
         box-sizing: border-box;
         overflow: scroll;
@@ -178,11 +192,4 @@ a {
 
 .far {
   margin-right: 10px;
-}
-.fa-heart{
-  margin-right: 10px;
-  color: #434a54;
-}
-.active .fa-heart {
-  color: red;
 }
