@@ -3,46 +3,6 @@ $(function() {
   var search_list = $(".place__all__pictures");
 
   function appendPlace(place) {
-    if (place.user_id == place.user.id) {
-        var html = `<div class="place__box">
-                      <div class="place__list__item">
-                        <div class="place__list__item__user">
-                        ${place.user.name}
-                        </div>
-                        <div class="place__list__item__time">
-                        ${place.created_at}
-                        </div>
-                      </div>
-                      <div class="place__list__item__image">
-                        <a href="/places/${place.id}"><img src="${place.image.url}">
-                        </a>
-                      </div>
-                      <div class="place__list__item__address">
-                        <span>
-                        ${place.address}
-                        </span>
-                        <div class="place__list__link">
-                          <a href="/places/${place.id}/edit">
-                            <i class="far fa-edit"></i>
-                          </a>
-                          <a data-confirm="削除してよろしいですか?" rel="nofollow" data-method="delete" href="/places/${place.id}">
-                            <i class="far fa-trash-alt"></i>
-                          </a>
-                        </div>
-                        <div class="likes_count">
-                          <div class="like-link" id="like-link-${place.id}">
-                            <a data-remote="true" rel="nofollow" data-method="post" href="/like/${place.id}">
-                              <i class="far fa-heart">
-                                <span class="fade-in-down">
-                                ${place.likes_count}
-                                </span>
-                              </i>
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>`
-  }else {
     var html = `<div class="place__box">
                   <div class="place__list__item">
                     <div class="place__list__item__user">
@@ -57,23 +17,16 @@ $(function() {
                       </a>
                     </div>
                     <div class="place__list__item__address">
-                      <span>
-                      ${place.address}
-                      </span>
-                      <div class="likes_count">
-                      <div class="like-link" id="like-link-${place.id}">
-                        <a data-remote="true" rel="nofollow" data-method="post" href="/like/${place.id}">
-                          <i class="far fa-heart">
-                            <span class="fade-in-down">
-                            ${place.likes_count}
-                            </span>
-                          </i>
-                        </a>
-                      </div>
+                    <span>
+                    ${place.address}
+                    </span>
+                    <div class="likes_count">
+                      <i class="far fa-heart">
+                      ${place.likes_count}
+                      </i>
                     </div>
                   </div>
                 </div>`
-  }
     search_list.append(html);
   }
 

@@ -10,12 +10,6 @@
   .place__list__item__address
     %span 
       = place.address
-    - if place.user_id == current_user.id
-      .place__list__link 
-        = link_to edit_place_path(place) do
-          %i.far.fa-edit
-        = link_to place, method: :delete, data: { confirm: '削除してよろしいですか?' } do
-          %i.far.fa-trash-alt
     .likes_count
-      .like-link{id: "like-link-#{place.id}"}
-        = render partial: 'likes/like', locals: {place: place}
+      %i.far.fa-heart
+        = place.likes_count

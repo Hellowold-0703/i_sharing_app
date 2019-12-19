@@ -2,9 +2,11 @@
   = link_to unlike_path(place.id), method: :delete, remote: true do
     %i.far.fa-heart
       %span.fade-in-down
-        = place.likes.count
+      いいね！
+      = place.likes.count
 - else
   = link_to like_path(place.id), method: :post, remote: true do
     %i.far.fa-heart
       %span.fade-in-down
-        = place.likes.count 
+      いいね！
+      = place.likes.count 

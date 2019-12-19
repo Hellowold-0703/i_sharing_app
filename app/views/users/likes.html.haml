@@ -28,9 +28,9 @@
                 = link_to place, method: :delete, data: { confirm: '削除してよろしいですか?' } do
                   %i.far.fa-trash-alt
             .likes_count
-              .like-link{id: "like-link-#{place.id}"}
-                = render partial: 'likes/like', locals: {place: place}
-
+              %i.far.fa-heart
+                = place.likes_count
+   
     .place_likes_user_name
       %h2 
         = current_user.name
@@ -57,6 +57,6 @@
                 = link_to like.place, method: :delete, data: { confirm: '削除してよろしいですか?' } do
                   %i.far.fa-trash-alt
             .likes_count
-              .like-link{id: "like-link-#{like.place.id}"}
-                = render partial: 'likes/like', locals: {place: like.place}
+              %i.far.fa-heart
+                = like.place.likes_count
 
