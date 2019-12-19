@@ -5,7 +5,7 @@
     .place__list__item__time 
       = place.created_at.strftime("%Y/%m/%d %H:%M")
   .place__list__item__image
-    = link_to place do
+    = link_to place,data: {turbolinks: false} do
       = image_tag place.images[0].image.url
   .place__list__item__address
     %span 

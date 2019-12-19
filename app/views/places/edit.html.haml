@@ -41,6 +41,6 @@
             = f.submit '編集する',{class: "btn new__place__btn"}
         %p
         .footer
-          = link_to 'TOPページへ戻る', places_path
+          = link_to 'TOPページへ戻る', places_path,data: {turbolinks: false}
           \・
           = link_to '詳細ページに行く', @place
