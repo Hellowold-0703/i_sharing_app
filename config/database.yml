@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: i_sharing_app_production
-  username: i_sharing_app
+  username: root
   password: <%= ENV['I_SHARING_APP_DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
