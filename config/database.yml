@@ -51,5 +51,5 @@ production:
   <<: *default
   database: i_sharing_app_production
   username: root
-  password: <%= ENV['I_SHARING_APP_DATABASE_PASSWORD'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
   socket: /var/lib/mysql/mysql.sock
