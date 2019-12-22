@@ -5,7 +5,7 @@ set :application, 'i_sharing_app'
 set :repo_url, 'git@github.com:Hellowold-0703/i_sharing_app.git'
 
 
-set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads',"config/master.key")
+set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads', 'config/master.key')
 
 
 set :rbenv_type, :user
@@ -19,6 +19,7 @@ set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
 set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
 set :keep_releases, 5
 
+set :linked_files, %w{ config/master.key }
 
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
