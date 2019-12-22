@@ -81,3 +81,4 @@ gem 'devise'
 gem 'jquery-rails'
 gem 'kaminari'
 gem 'font-awesome-sass'
+gem "aws-sdk-s3", require: false
