@@ -121,9 +121,13 @@
         &__item {
           display: flex;
           &__user {
+            width: 150px;
             font-size: 16px;
             color:#434a54;
             font-weight: bold;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
           }
           &__title {
             span {
