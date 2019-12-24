@@ -12,7 +12,9 @@
           .date_time
             %i.far.fa-clock
             = date_format(comment.created_at)
-          %i
+            = link_to "/places/#{comment.place_id}/comments/#{comment.id}", method: :delete do
+              %i.far.fa-trash-alt
+            
     - elsif @place.user.id == comment.user_id
       %li.clearfix
         %a.comment__user
@@ -26,7 +28,7 @@
           .date_time
             %i.far.fa-clock
             = date_format(comment.created_at)
-          %i
+        
     - else
       %li.clearfix
         %a.comment__user
@@ -39,4 +41,4 @@
           .date_time
             %i.far.fa-clock
             = date_format(comment.created_at)
-          %i
+        
