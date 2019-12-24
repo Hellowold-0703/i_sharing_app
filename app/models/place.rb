@@ -44,12 +44,12 @@ class Place < ApplicationRecord
   end
 
   def create_notification_comment(current_user, comment_id)
-    temp_ids = Comment.select(:user_id).where(place_id: id).where.not(user_id: current_user.id).distinct
+    temp_ids = Comment.select(:user_id).where(place_id: id).where.not(user_id: current_user.id).where.not(user_id: user_id).distinct
     temp_ids.each do |temp_id|
       save_notification_comment(current_user, comment_id, temp_id['user_id'])
     end
 
-    save_notification_comment(current_user, comment_id, user_id) if temp_ids.blank?
+    save_notification_comment(current_user, comment_id, user_id)
   end
   
   def save_notification_comment(current_user, comment_id, visited_id)

@@ -8,7 +8,10 @@ class NotificationsController < ApplicationController
 
   def destroy
     @notification = Notification.find(params[:id])
-    @notification.destroy
-     redirect_to notifications_path
+    if @notification.destroy
+      redirect_to notifications_path
+    else
+      redirect_to root_path
+    end 
   end
 end
