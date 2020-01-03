@@ -4,7 +4,7 @@
 情報共有アプリです。画像などの必須情報を入力し投稿すると地図上にピンが立ち、どこで撮った写真なのか登録することができます。
 
 # DEMO
-https://gyazo.com/50d4ebb1aca24d741c040ede287a4893
+[![Image from Gyazo](https://i.gyazo.com/50d4ebb1aca24d741c040ede287a4893.gif)](https://gyazo.com/50d4ebb1aca24d741c040ede287a4893)
 
 # Features
 * Google_maps_apiを使用した地図表示と地点登録
