@@ -1,7 +1,12 @@
 # README
 
 # i sharing app
-情報共有アプリです。画像などの必須情報を入力し投稿すると地図上にピンが立ち、どこで撮った写真なのか登録することができます。
+情報共有アプリです。
+
+# description
+* 画像などの必須情報を入力し投稿すると地図上にピンが立ち、どこで撮った写真なのか登録することができます。
+* 各投稿に対してコメントすることができます。
+* 投稿を検索することができます。
 
 # DEMO
 https://gyazo.com/50d4ebb1aca24d741c040ede287a4893
@@ -16,7 +21,7 @@ https://gyazo.com/50d4ebb1aca24d741c040ede287a4893
 * Ruby 2.5.1
 * Rails 5.2.3
 
-# Usage
+# Installation
 ```
 $ git clone https://github.com/Hellowold-0703/i_sharing_app.git
 $ cd i_sharing_app
@@ -24,7 +29,7 @@ $ bundle install
 ```
 
 # Author
-* 橋本　良平
+* @Hellowold-0703
 * h.ryohei0703@gmail.com
 
 # License
@@ -83,3 +88,20 @@ MIT
 ### Association
 - belongs_to :place
 - belongs_to :user
+
+## notificationテーブル
+|Column|Type|Options|
+|------|----|-------|
+|comment|text|
+|vistor_id|integer|null: false|
+|visited_id|integer|null:false|
+|place_id|integer|
+|comment_id|integer|
+|action|string|null:false, default: ""|
+|checked|boolean|null:false, default: false|
+
+### Association
+- belongs_to :place
+- belongs_to :comment
+- belongs_to :visitor, class_name: 'User', foreign_key: 'visitor_id', optional: true
+- belongs_to :visited, class_name: 'User', foreign_key: 'visited_id', optional: true
