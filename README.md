@@ -1,27 +1,35 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# i sharing app
+情報共有アプリです。画像などの必須情報を入力し投稿すると地図上にピンが立ち、どこで撮った写真なのか登録することができます。
 
-Things you may want to cover:
+# DEMO
+https://gyazo.com/50d4ebb1aca24d741c040ede287a4893
 
-* Ruby version
+# Features
+* Google_maps_apiを使用した地図表示と地点登録
+* ajaxを使用した非同期処理（画像削除・投稿検索・いいね！機能）
+* capistranoによるAWS EC2への自動デプロイ
+* RSpecを使った単体テスト
 
-* System dependencies
+# Requirement
+* Ruby 2.5.1
+* Rails 5.2.3
 
-* Configuration
+# Usage
+```
+$ git clone https://github.com/Hellowold-0703/i_sharing_app.git
+$ cd i_sharing_app
+$ bundle install
+```
 
-* Database creation
+# Author
+* 橋本　良平
+* h.ryohei0703@gmail.com
 
-* Database initialization
+# License
+MIT
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
 
 ## usersテーブル
 |Column|Type|Options|
