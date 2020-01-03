@@ -2,6 +2,7 @@ class Image < ApplicationRecord
 
   belongs_to :place
 
+  validates :place, presence: true
   validates :image, presence: true
 
   mount_uploader :image, ImageUploader
