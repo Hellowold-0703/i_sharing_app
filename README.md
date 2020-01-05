@@ -29,7 +29,7 @@ $ bundle install
 ```
 
 # Author
-* @Hellowold-0703
+* 橋本良平
 * h.ryohei0703@gmail.com
 
 # License
@@ -92,7 +92,6 @@ MIT
 ## notificationテーブル
 |Column|Type|Options|
 |------|----|-------|
-|comment|text|
 |vistor_id|integer|null: false|
 |visited_id|integer|null:false|
 |place_id|integer|
