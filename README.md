@@ -1,10 +1,10 @@
 # README
 
 # i sharing app
-情報共有アプリです。
+地図上に写真の撮影地点を登録・表示する情報共有アプリです。
 
 # description
-* 画像などの必須情報を入力し投稿すると地図上にピンが立ち、どこで撮った写真なのか登録することができます。
+* 画像などの必須情報を入力し投稿すると地図上にピンが立ち、どこで撮影した写真なのか地点登録することができます。
 * 各投稿に対してコメントすることができます。
 * 投稿を検索することができます。
 
@@ -48,6 +48,8 @@ MIT
 - has_many :comments
 - has_many :likes
 - has_many :like_places, through: :likes, source: :place
+- has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id'
+- has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id'
 
 ## likesテーブル
 
@@ -66,17 +68,27 @@ MIT
 |name|string|null: false|
 |address|string|null: false|
 |description|string|null: false|
-|images|string|null: false|
 |latitude|integer|null: false|
 |longitude|integer|null: false|
 |user_id|integer|null: false, foreign_key: true|
-|likes_counter|integer|
+|likes_counter|integer|default: 0|
 
 ### Association
 - belongs_to :user
 - has_many :comments
+- has_many :images
+- has_many :notifications
 - has_many :likes
 - has_many :liking_users, through: :likes, source: :user
+
+## imagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|place_id|integer|null: false, foreign_key: true|
+|image|text|null: false|
+
+### Association
+- belongs_to :place
 
 ## commentsテーブル
 |Column|Type|Options|
@@ -88,6 +100,7 @@ MIT
 ### Association
 - belongs_to :place
 - belongs_to :user
+- has_many :notifications
 
 ## notificationテーブル
 |Column|Type|Options|
