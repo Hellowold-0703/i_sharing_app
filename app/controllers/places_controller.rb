@@ -47,7 +47,6 @@ class PlacesController < ApplicationController
  
   def create
     @place = Place.new(place_params)
-
       if @place.save
         respond_to do |format|
           format.html { redirect_to @place}
@@ -61,22 +60,25 @@ class PlacesController < ApplicationController
 
   
   def update
-      if @place.update(update_params)
+      if @place.user_id == current_user.id && @place.update(update_params)
         respond_to do |format|
           format.html { redirect_to @place }
           format.json { render :show, status: :ok, location: @place }
         end
       else
-        flash[:alert] = '編集できません。内容を確認してください。'
+        flash[:alert] = '編集できません。内容を確認してください'
         redirect_to edit_place_path
       end
   end
   
   def destroy
-    @place.destroy
-    respond_to do |format|
-      format.html { redirect_to places_url }
-      format.json { head :no_content }
+    if @place.user_id == current_user.id && @place.destroy
+      respond_to do |format|
+        format.html { redirect_to places_url }
+        format.json { head :no_content }
+      end
+    else
+      redirect_to root_path
     end
   end
 

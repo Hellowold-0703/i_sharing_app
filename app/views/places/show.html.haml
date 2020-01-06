@@ -5,7 +5,7 @@
       .place__details__page
         .place__details__title
           = @place.title
-          - if @place.user_id == current_user.id
+          - if user_signed_in? && @place.user_id == current_user.id
             .link__edit__page
               = link_to edit_place_path do
                 %i.far.fa-edit
