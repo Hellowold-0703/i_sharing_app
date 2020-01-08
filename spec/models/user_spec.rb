@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
+  
+  let(:user) { FactoryBot.create(:user) }
+
   it "has a valid factory" do
     expect(FactoryBot.build(:user)).to be_valid
   end
@@ -23,8 +26,8 @@ RSpec.describe User, type: :model do
   end
 
   it "is invalid with a duplicate email address" do
-    FactoryBot.create(:user)
-    user = FactoryBot.build(:user, email: "aaaa@yahoo.co.jp")
+    user
+    user = FactoryBot.build(:user, email: "test32@yahoo.co.jp")
     user.valid?
     expect(user.errors[:email]).to include("はすでに存在します")
   end

@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe PlacesController, type: :controller do
+
   describe "#index" do
     context "as an authenticated user" do
     
@@ -164,7 +165,7 @@ RSpec.describe PlacesController, type: :controller do
         }.to_not change(Place, :count)
       end
 
-      it "redirects to the dashboard" do
+      it "redirects to the root_path" do
         sign_in @user
         delete :destroy, params: {id: @place.id}
         expect(response).to redirect_to root_path
