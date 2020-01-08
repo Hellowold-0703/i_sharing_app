@@ -3,7 +3,8 @@
 # i sharing app
 地図上に写真の撮影地点を登録・表示する情報共有アプリです。
 
-# description
+# Description
+市職員として水害にあった経験から情報共有することの重要性を実感し作成しました。
 * 画像などの必須情報を入力し投稿すると地図上にピンが立ち、どこで撮影した写真なのか地点登録することができます。
 * 各投稿に対してコメントすることができます。
 * 投稿に対していいね！またはコメントされた時は通知を受け取ることができます。
@@ -103,7 +104,7 @@ MIT
 - belongs_to :user
 - has_many :notifications
 
-## notificationテーブル
+## notificationsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |vistor_id|integer|null: false|
