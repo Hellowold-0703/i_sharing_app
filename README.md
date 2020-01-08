@@ -17,7 +17,7 @@
 * Google_maps_apiを使用した地図表示と地点登録
 * ajaxを使用した非同期処理（画像削除・投稿検索・いいね！機能）
 * capistranoによるAWS EC2への自動デプロイ
-* RSpecを使った単体テスト
+* RSpecを使用した単体テスト・統合テスト
 
 # Requirement
 * Ruby 2.5.1
