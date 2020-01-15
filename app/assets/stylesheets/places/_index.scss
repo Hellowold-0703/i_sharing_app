@@ -44,6 +44,16 @@
         border: 1px solid #ffffff;
         cursor: pointer;
       }
+      &__admin {
+        margin: auto 0px;
+        
+        width: 100px;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        border: 1px solid #ffffff;
+        cursor: pointer;
+      }
       &__notifications {
         margin: auto 20px auto auto;
         width: 100px;

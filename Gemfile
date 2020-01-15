@@ -85,3 +85,5 @@ gem 'jquery-rails'
 gem 'kaminari'
 gem 'font-awesome-sass'
 gem "fog-aws"
+gem 'cancancan'
+gem 'rails_admin'
