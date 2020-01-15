@@ -5,8 +5,12 @@
     .place__list__item__time 
       = place.created_at.strftime("%Y/%m/%d %H:%M")
   .place__list__item__image
-    = link_to place,data: {turbolinks: false} do
-      = image_tag place.images[0].image.url
+    - if user_signed_in?
+      = link_to place,data: {turbolinks: false} do
+        = image_tag place.images[0].image.url
+    - else
+      = link_to new_user_session_path do
+        = image_tag place.images[0].image.url
   .place__list__item__address
     %span 
       = place.address
