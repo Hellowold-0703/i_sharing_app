@@ -25,6 +25,16 @@
         line-height: 60px;
         cursor: pointer;
       }
+      &__sign__up {
+        margin: auto 0px;
+        margin-left: 20px;
+        width: 100px;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        border: 1px solid #ffffff;
+        cursor: pointer;
+      }
       &__user {
         margin: auto 20px;
         width: 100px;
@@ -34,7 +44,7 @@
         border: 1px solid #ffffff;
         cursor: pointer;
       }
-      &__sign-up {
+      &__notifications {
         margin: auto 20px auto auto;
         width: 100px;
         height: 40px;
