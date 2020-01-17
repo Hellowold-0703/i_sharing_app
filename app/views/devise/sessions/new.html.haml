@@ -5,18 +5,21 @@
       %h2 Log in
       %h5 登録しているユーザーでログイン
       = render "devise/shared/links"
+      = link_to user_google_oauth2_omniauth_authorize_path, class: 'btn sns-btn' do
+        %i.fab.fa-google 
+        Googleでログインする
     .account-page__inner--right.user-form
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         .field
           .field-label
-            = f.label :email
+            = f.label :email, 'メールアドレス'
           .field-input
             = f.email_field :email, autofocus: true
           .field
             .field-label
-              = f.label :password
+              = f.label :password, 'パスワード'
               %i (英数字8文字以上)
             .field-input
               = f.password_field :password, autocomplete: "off"
           .actions
-            = f.submit "Log in", class: 'btn'
+            = f.submit "ログイン", class: 'btn'
