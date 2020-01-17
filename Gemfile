@@ -87,3 +87,6 @@ gem 'font-awesome-sass'
 gem "fog-aws"
 gem 'cancancan'
 gem 'rails_admin'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'faker'

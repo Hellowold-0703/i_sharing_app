@@ -10,24 +10,24 @@
         = devise_error_messages!
         .field
           .field-label
-            = f.label :name
+            = f.label :name, '名前'
           .field-input
             = f.text_field :name, autofocus: true
         .field
           .field-label
-            = f.label :email
+            = f.label :email, 'メールアドレス'
           .field-input
             = f.email_field :email
         .field
           .field-label
-            = f.label :password
+            = f.label :password, 'パスワード'
             %i (英数字8文字以上)
           .field-input
             = f.password_field :password, autocomplete: "off"
         .field
           .field-label
-            = f.label :password_confirmation
+            = f.label :password_confirmation, 'パスワード確認'
           .field-input
             = f.password_field :password_confirmation, autocomplete: "off"
         .actions
-          = f.submit "Create Account", class: 'btn'
+          = f.submit "アカウントを作成", class: 'btn'

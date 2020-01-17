@@ -46,8 +46,20 @@
       background-color: #ccc;
       font-size: 14px;
     }
+    .btn-signup {
+      float: left;
+    }
+    .sns-btn {
+      margin: 2px 0 0 5px;
+      background-color: red;
+    }
+    .fa-google {
+      margin-right: 10px;
+      font-size: 30px;
+      vertical-align: middle;
+    }
   }
-
+    
   .field {
     margin-bottom: 10px;
 
