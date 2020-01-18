@@ -1,13 +1,13 @@
 .place__header
   - if user_signed_in?
     .place__header__logo
-      = link_to 'i sharing', root_path,data: {turbolinks: false}
-    .place__header__user
+      = link_to 'i sharing', root_path,data: {turbolinks: false},class: 'header'
+    .place__header__user.header
       = link_to current_user.name, edit_user_path(current_user)
     - if current_user.admin_flg?
-      .place__header__admin  
+      .place__header__admin.header
         = link_to '管理画面', rails_admin_path
-    .place__header__notifications
+    .place__header__notifications.header
       = link_to notifications_path,data: {turbolinks: false} do
         %span通知
         - if user_signed_in? && unchecked_notifications.any?
@@ -16,19 +16,19 @@
             %i.fas.fa-circle.n-circle.fa-stack-1x
         - else
           %i.far.fa-bell.fa-lg{style: "font-size:1.5em;"}
-    .place__header__log-in
+    .place__header__log-in.header
       - if user_signed_in?
         = link_to 'マイページ', "/users/#{current_user.id}/likes",data: {turbolinks: false}
       - else
         = link_to 'マイページ', new_user_session_path
-    .place__header__all-places
+    .place__header__all-places.header
       = link_to '投稿一覧', all_places_path,data: {turbolinks: false}
-    .place__header__new-create
+    .place__header__new-create.header
       = link_to '投稿する', new_place_path, data: {turbolinks: false}
   - else
-    .place__header__logo
+    .place__header__logo.haeder
       = link_to 'i sharing', root_path,data: {turbolinks: false}
-    .place__header__sign__up
+    .place__header__sign__up.header
       = link_to '新規登録', new_user_registration_path
-    .place__header__user
+    .place__header__user.header
       = link_to 'ログイン', new_user_session_path
