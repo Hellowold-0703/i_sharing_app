@@ -11,7 +11,7 @@
 * 投稿を検索することができます。
 
 # DEMO
-[![Image from Gyazo](https://i.gyazo.com/f98eed4ae62d76c750d980666de1e9d2.gif)](https://gyazo.com/f98eed4ae62d76c750d980666de1e9d2)
+[![Image from Gyazo](https://i.gyazo.com/54ddc7d426319e555ecaf42b7d30641e.gif)](https://gyazo.com/54ddc7d426319e555ecaf42b7d30641e)
 
 # Features
 * Google_maps_apiを使用した地図表示と地点登録
