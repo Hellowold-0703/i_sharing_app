@@ -1,4 +1,3 @@
-= render 'layouts/notifications'
 %script{:src => "//maps.google.com/maps/api/js?key=#{ ENV['GOOGLE_MAPS_API_KEY'] }"}
 %script{:src => "//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"}
 %script{:src => "//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js", :type => "text/javascript"}
@@ -7,6 +6,7 @@
   .place
     = render partial: 'places/header'
     .place__content
+      = render 'layouts/notifications'
       .place__map
         #map{:style => "width: 1000px; height: 650px;"}
         :javascript

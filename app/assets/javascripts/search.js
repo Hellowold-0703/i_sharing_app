@@ -6,7 +6,7 @@ $(function() {
     var html = `<div class="place__box">
                   <div class="place__list__item">
                     <div class="place__list__item__user">
-                    ${place.user.name}
+                    ${place.user}
                     </div>
                     <div class="place__list__item__time">
                     ${place.created_at}

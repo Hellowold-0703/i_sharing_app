@@ -5,5 +5,6 @@ json.array! @places do |place|
   json.address place.address
   json.user_id place.user_id
   json.likes_count place.likes_count
-  json.user current_user
+  json.user place.user.name
+  json.current_user current_user
 end
