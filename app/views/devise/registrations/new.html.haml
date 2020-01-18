@@ -5,6 +5,9 @@
       %h2 Create Account
       %h5 新規アカウントの作成
       = render "devise/shared/links"
+      = link_to user_google_oauth2_omniauth_authorize_path, class: 'btn sns-btn' do
+        %i.fab.fa-google 
+        Googleで登録する
     .account-page__inner--right.user-form
       = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
         = devise_error_messages!
