@@ -16,6 +16,8 @@
 # Features
 * Google_maps_apiを使用した地図表示と地点登録
 * ajaxを使用した非同期処理（画像削除・投稿検索・いいね！機能）
+* rails_adminを使用した管理者設定
+* omniauthを使用したSNSログイン機能
 * capistranoによるAWS EC2への自動デプロイ
 * RSpecを使用した単体テスト・統合テスト
 
@@ -23,6 +25,18 @@
 * Ruby 2.5.1
 * Rails 5.2.3
 
+# Usage
+```
+接続先情報
+URL https://i-sharing-app.com/
+テスト用アカウント等
+管理者
+メールアドレス: aaaa@aaaa.co.jp
+パスワード: 11111111
+一般
+メールアドレス: bbbb@bbbb.co.jp
+パスワード: 11111111
+```
 # Installation
 ```
 $ git clone https://github.com/Hellowold-0703/i_sharing_app.git
