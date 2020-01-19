@@ -10,11 +10,11 @@
     .new__place {
       padding: 20px 0 20px;
       text-align: center;
-      background-color: #ffffff;
+      background-color: $color-white;
       .alert {
         padding-top: 20px;
         color: #dd0000;
-        background-color: #fff;
+        background-color: $color-white;
       }
       h1 {
         font-size: 30px;
@@ -36,7 +36,7 @@
         height: 130px;
         border: 1px solid #dd0000;
         background: #dd0000;
-        color:#fff;
+        color:$color-white;
       } 
       .view_box input[type=file] {
         opacity: 0;
@@ -51,7 +51,7 @@
         width: 100px;
         height: 80px;
         a {
-          color: #ffffff;
+          color: $color-white;
         }
         img {
           width: 100px;
@@ -86,7 +86,7 @@
         width: 400px;
         height: 40px;
         font-size: 14px;
-        color: #ffffff;
+        color: $color-white;
         background-color: #aaa;
         border: 1px solid #aaa;
         transition: all ease-out .3s;

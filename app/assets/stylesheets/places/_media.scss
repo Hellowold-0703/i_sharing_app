@@ -1,0 +1,61 @@
+@media screen and (max-width: 767px) {
+  .place__header {
+    display: inline-block;
+    height: 150px;
+    &__logo {
+      margin: 0 auto;
+    }
+    &__sign__up {
+      margin: 0;
+      float: left;
+    }
+    &__user {
+      margin: 0;
+      float: left;
+    }
+    &__admin {
+      margin: 0;
+      float: left;
+    }
+    &__notifications {
+      margin: 0;
+      float: left;
+    }
+    &__log-in {
+      margin: 0;
+      float: left;
+    }
+    &__all-places {
+      margin: 0;
+      float: left;
+    }
+    &__new-create {
+      margin: 0;
+      float: left;
+    }
+  }
+  .place__footer {
+    display: none;
+  }
+  .place__list {
+    height: 1200px;
+  }
+  .new {
+    background-color: #fff;
+  }
+  .new__create {
+    padding-top: 140px;
+  }
+  .place__all {
+    padding-top: 160px;
+    #search {
+      margin: 0;
+    }
+  }
+  .details {
+    background-color: $color-white;
+  }
+  .place__notifications {
+    background-color: #fff;
+  }
+}

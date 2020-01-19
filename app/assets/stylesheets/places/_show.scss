@@ -6,7 +6,7 @@
       width: 850px;
       padding: 20px 40px 40px;   
       margin: 0 auto;
-      background-color: #ffffff;
+      background-color: $color-white;
       &__title {
         position: relative;
         display: flex;
@@ -59,21 +59,21 @@
           padding: 5px 0 5px 10px;
           width: 850px;
           min-height: 20px;
-          background-color: #ffffff;
+          background-color: $color-white;
           font-weight: bold;
         }
         .place__address {
           padding: 5px 0 5px 10px;
           width: 850px;
           min-height: 50px;
-          background-color: #ffffff;
+          background-color: $color-white;
           font-weight: bold;
         }
         .place__description {
           padding: 5px 0 5px 10px;
           width: 850px;
           min-height: 50px;
-          background-color: #ffffff;
+          background-color: $color-white;
           font-weight: bold;
         }
         .likes_count {
@@ -88,7 +88,7 @@
   .place__comments {
     width: 930px;
     margin: 20px auto 0;
-    background-color: #ffffff;
+    background-color: $color-white;
     .place__comment {
       box-sizing: border-box;
       padding: 20px;
@@ -99,7 +99,7 @@
       }
       &__content {
         padding: 24px;
-        background-color: #fff;
+        background-color: $color-white;
       } 
         ul {
           list-style: none;
