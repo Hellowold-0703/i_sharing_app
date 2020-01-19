@@ -18,6 +18,7 @@
 * ajaxを使用した非同期処理（画像削除・投稿検索・いいね！機能）
 * rails_adminを使用した管理者設定
 * omniauthを使用したSNSログイン機能
+* レスポンシブWebデザイン
 * capistranoによるAWS EC2への自動デプロイ
 * RSpecを使用した単体テスト・統合テスト
 
