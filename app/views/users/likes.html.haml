@@ -35,6 +35,7 @@
       %h2 
         = current_user.name
         さんのいいね！一覧
+        = paginate @places
       .place_likes_all.clearfix
       - @likes.each do |like|
         .place__box
